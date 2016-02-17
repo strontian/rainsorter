@@ -61,6 +61,7 @@ public class MSAShapefileLoader {
         while (features.hasNext()) {
             toReturn.add(features.next());
         }
+        features.close();
         return toReturn;
     }
     

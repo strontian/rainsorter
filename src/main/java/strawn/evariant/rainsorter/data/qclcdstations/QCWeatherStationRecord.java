@@ -21,11 +21,11 @@ package strawn.evariant.rainsorter.data.qclcdstations;
  */
 public class QCWeatherStationRecord {
     
-    public int wban;
+    public String wban;
     public double latitude;
     public double longitude;
     
-    public QCWeatherStationRecord(int wban, double latitude, double longitude) {
+    public QCWeatherStationRecord(String wban, double latitude, double longitude) {
         this.wban = wban;
         this.latitude = latitude;
         this.longitude = longitude;

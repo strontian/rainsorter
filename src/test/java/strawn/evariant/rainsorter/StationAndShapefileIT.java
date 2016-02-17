@@ -62,7 +62,10 @@ public class StationAndShapefileIT {
             }
         }
     }
-    
+    /**
+     * This makes sure that no station from our entire list of stations fits into more than one region.
+     * In other words, we are checking that the regions do not overlap.
+     */
     @Test
     public void allStationsBelongToOnlyOneRegion() {
         for(QCWeatherStationRecord station : stations) {
@@ -71,12 +74,12 @@ public class StationAndShapefileIT {
                 if(GeometryTools.isPointInRegion(station.longitude, station.latitude, feature)) {
                     featureMatchCount++;
                     if(featureMatchCount > 1) {
-                        System.out.println("Overmatch Station!:" + station.wban + ", feature:" + feature.getAttribute("CBSAFP").toString());
+                        //System.out.println("Overmatch Station!:" + station.wban + ", feature:" + feature.getAttribute("CBSAFP").toString());
                     }
                 }
             }
-            if(featureMatchCount == 0) {
-                System.out.println("Unmatched Station!:" + station.wban);
+            if(featureMatchCount > 1) {
+                Assert.fail();
             }
         }
     }

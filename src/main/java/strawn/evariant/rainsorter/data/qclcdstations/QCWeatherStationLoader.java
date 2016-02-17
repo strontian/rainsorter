@@ -37,8 +37,10 @@ public class QCWeatherStationLoader {
         for (CSVRecord record : records) {
             double latitude = Double.parseDouble(record.get("Latitude"));
             double longitude = Double.parseDouble(record.get("Longitude"));
-            int wban = Integer.parseInt(record.get("WBAN"));
-            toReturn.add(new QCWeatherStationRecord(wban, latitude, longitude));
+            String wbanString = record.get("WBAN");
+            if(wbanString.length() > 0) {
+                toReturn.add(new QCWeatherStationRecord(wbanString, latitude, longitude));
+            }
         }
         return toReturn;
     }

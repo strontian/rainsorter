@@ -26,7 +26,7 @@ import strawn.evariant.rainsorter.data.msacounty.MSACountyRecord;
  */
 public class RainsorterEngine {
     
-    private HashMap<Integer, WeatherStation> wbanToStationMap;
+    private HashMap<String, WeatherStation> wbanToStationMap;
     private List<MetropolitanStatisticalArea> metroAreas;
     
     public RainsorterEngine(Collection<MSACountyRecord> areas) {

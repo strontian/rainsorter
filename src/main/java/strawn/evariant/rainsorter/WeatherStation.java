@@ -25,7 +25,7 @@ import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
 public class WeatherStation {
     
     public ArrayList<PrecipitationRecord> readings;
-    public int wbanID;
+    public String wbanID;
     public double latitude;
     public double longitude;
     
