@@ -33,10 +33,11 @@ public class App {
         
         OutputCreator.writeWetnessCsv(msas);
         OutputCreator.writeMSAQuintiles(msas);
-        
+        /*
         for(MetropolitanStatisticalArea msa : msas) {
             System.out.println(msa.msaName + ", wetness:" + msa.getWetnessRating());
         }
+        */
     }
     
 }

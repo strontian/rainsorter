@@ -47,16 +47,20 @@ public class IOTools {
     public static void writeAsJSON(String location, List<? extends Object> toWrite) throws IOException {
         //makeParentDirs(location);
         BufferedWriter bw = new BufferedWriter(new FileWriter(location));
-        int i = 0;
+        bw.write("[");
+        boolean first = true;
         Gson g = new Gson();
         for(Object o : toWrite) {
-            if(i != 0) {
+            if(!first) {
+                bw.write(',');
                 bw.newLine();
+            }else{
+                first = false;
             }
-            i++;
             String s = g.toJson(o);
             bw.write(s);
         }
+        bw.write("]");
         bw.close();
     }
     

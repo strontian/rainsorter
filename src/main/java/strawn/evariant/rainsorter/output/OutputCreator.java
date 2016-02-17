@@ -52,7 +52,7 @@ public class OutputCreator {
             WeatherStation station = msa.stations.get(0);
             toWrite.add(new MSAWithQuintileAndCoordinates(station.latitude, station.longitude, msa.msaName, getQuintile(i, msas.size())));
         }
-        IOTools.writeAsJSON(WETNESS_OUTPUT_LOCATION, toWrite);
+        IOTools.writeAsJSON(QUINTILES_OUTPUT_LOCATION, toWrite);
     }
     
     public static int getQuintile(int index, int total) {
