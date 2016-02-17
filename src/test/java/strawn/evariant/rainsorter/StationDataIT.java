@@ -16,7 +16,16 @@
 package strawn.evariant.rainsorter;
 
 import java.io.IOException;
-import org.junit.Before;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import strawn.evariant.rainsorter.data.precipitation.PrecipitationLoader;
+import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationLoader;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
  *
@@ -24,9 +33,29 @@ import org.junit.Before;
  */
 public class StationDataIT {
     
-    @Before
-    public void setup() throws IOException {
-        
-    }
+    List<PrecipitationRecord> precipRecords;
+    List<QCWeatherStationRecord> stations;
+    HashMap<String, QCWeatherStationRecord> stationsByWBAN;
     
+    @BeforeClass
+    public void setup() throws IOException {
+        precipRecords = PrecipitationLoader.loadRecordsFromDisk();
+        stations = QCWeatherStationLoader.loadRecordsFromDisk();
+        stationsByWBAN = new HashMap();
+        for(QCWeatherStationRecord station : stations) {
+            stationsByWBAN.put(station.wban, station);
+        }
+    }
+    /**
+     * Makes sure that for every record of rainfall, there is a station with a matching WBAN
+     */
+    @Test
+    public void allHBANsPresent() {
+        Set<String> keys = stationsByWBAN.keySet();
+        for(PrecipitationRecord record : precipRecords) {
+            if(!keys.contains(record.wbanId)) {
+                Assert.fail();
+            }
+        }
+    }
 }

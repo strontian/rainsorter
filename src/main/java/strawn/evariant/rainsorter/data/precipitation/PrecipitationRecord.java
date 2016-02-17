@@ -21,13 +21,13 @@ package strawn.evariant.rainsorter.data.precipitation;
  */
 public class PrecipitationRecord {
     
-    public int wbanId;
+    public String wbanId;
     public int hour;
     public double inchesOfRain;
     public boolean isTrace;
     public boolean isSuspect;
     
-    public PrecipitationRecord(int wbanId, int hour, double inchesOfRain, boolean isTrace, boolean isSuspect) {
+    public PrecipitationRecord(String wbanId, int hour, double inchesOfRain, boolean isTrace, boolean isSuspect) {
         this.wbanId = wbanId;
         this.hour = hour;
         this.inchesOfRain = inchesOfRain;

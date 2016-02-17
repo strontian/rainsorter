@@ -30,12 +30,12 @@ import org.apache.commons.csv.CSVRecord;
  */
 public class PrecipitationLoader {
     
-    public static List<PrecipitationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException, Exception {
+    public static List<PrecipitationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
         ArrayList<PrecipitationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
         for (CSVRecord record : records) {
             int hour = Integer.parseInt(record.get("Hour"));
-            int wban = Integer.parseInt(record.get("Wban"));
+            String wban = record.get("Wban");
             double inchesOfRain = 0d;
             boolean isTrace = false;
             boolean isSuspect = false;
@@ -46,8 +46,8 @@ public class PrecipitationLoader {
                 inchesOfRain = Double.parseDouble(record.get("Precipitation"));
             }
             String noteString = record.get("PrecipitationFlag").trim();
-            if(noteString.isEmpty()) {
-                
+            if(noteString.equals("S")) {
+                isSuspect = true;
             }
             toReturn.add(new PrecipitationRecord(wban, hour, inchesOfRain, isTrace, isSuspect));
         }
