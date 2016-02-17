@@ -10,8 +10,8 @@ Data from three government published data sets is used by rainsorter to calculat
 
 **1. Quality Controlled Local Climatological Data(QCLCD)**
 
-Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N 
-Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip 
+Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N  
+Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip  
 Date: May 2015
 
 Description: QCLCD contains two data sets of interest:
@@ -20,15 +20,15 @@ Description: QCLCD contains two data sets of interest:
 
 **2. Census Bureau Population Estimate**
 
-Website: http://www.census.gov/popest/about/geo/terms.html 
-Download: http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2015_PEPANNRES
+Website: http://www.census.gov/popest/about/geo/terms.html  
+Download: http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2015_PEPANNRES  
 Date: July 2014
 Description: US Census population estimates broken down by MSA.
 
 **3. TIGER/Line® Shapefiles** 
 
-Website: https://www.census.gov/geo/maps-data/data/tiger-line.html
-Download: ftp://ftp2.census.gov/geo/tiger
+Website: https://www.census.gov/geo/maps-data/data/tiger-line.html  
+Download: ftp://ftp2.census.gov/geo/tiger  
 Date: August 2015
 Description: GIS data describing the geographical area covered by each MSA.
 
@@ -77,7 +77,7 @@ rainsorter is released under LGPL 2.1
 
 ## Dependencies
 
-commons-csv (Apache 2.0) https://commons.apache.org/proper/commons-csv/
-Gson (Apache 2.0)  https://github.com/google/gson
-GeoTools (LGPL 2.1) http://www.geotools.org
+commons-csv (Apache 2.0) https://commons.apache.org/proper/commons-csv/  
+Gson (Apache 2.0)  https://github.com/google/gson  
+GeoTools (LGPL 2.1) http://www.geotools.org  
 
