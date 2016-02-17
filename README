@@ -1,0 +1,51 @@
+# rainsorter
+
+## Synopsis
+
+rainsorter sorts each Metropolitan Statistical Area(MSA) in the United States by a metric called "Population Wetness". Population Wetness is defined as the amount of rain received by an MSA during the daytime multiplied by the number of people living in that area.
+
+## Data Sets
+
+Data from three government published data sets is used by rainsorter to calculate population wetness:
+
+Quality Controlled Local Climatological Data(QCLCD)
+
+Description: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
+Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
+Date: May 2015
+
+QCLCD contains two data sets of interest:
+  1. Hourly precipitation data for each weather station
+  2. List of weather stations
+
+Census Bureau Population Estimate
+
+Description: http://www.census.gov/popest/about/geo/terms.html 
+Download: http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2015_PEPANNRES
+Date: July 2014
+
+US Census population estimates broken down by MSA.
+
+TIGER/Line® Shapefiles 
+
+Description: https://www.census.gov/geo/maps-data/data/tiger-line.html
+Download: ftp://ftp2.census.gov/geo/tiger
+Date: August 2015
+
+GIS data describing the geographical area covered by each MSA.
+
+## Definitions && Methodology
+
+Metropolitan Statistical Areas
+
+The United States is divided into geographic areas called Core Based Statistical Areas(CBSA). CBSAs can be either Metropolitan Statistical Areas(MSA) or Micropolitan Statistical Areas, of which this program concerns only the former. CBSAs(and therefore MSAs) are composed of counties and county equivalents.
+
+MSAs are designated by a GEOID code. This 5-digit code appears in the Shapefile data as an attribute named 'CBSAFP', and in the census data as a field named 'Id2.' It may also be referred to as a CBSA code.  
+
+http://www.census.gov/geo/reference/gtc/gtc_cbsa.html
+
+Geographic Description of MSAs
+
+Geographical descriptions of MSAs are encoded in shapefiles. We use the GeoTools library to interpret
+
+
