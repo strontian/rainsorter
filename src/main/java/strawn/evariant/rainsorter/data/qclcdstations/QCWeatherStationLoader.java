@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.weatherstations;
+package strawn.evariant.rainsorter.data.qclcdstations;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,23 +28,22 @@ import org.apache.commons.csv.CSVRecord;
  *
  * @author davidstrawn
  */
-public class WeatherStationLoader {
+public class QCWeatherStationLoader {
     
-    public static List<WeatherStationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
-        ArrayList<WeatherStationRecord> toReturn = new ArrayList();
+    public static List<QCWeatherStationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException, Exception {
+        ArrayList<QCWeatherStationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
         for (CSVRecord record : records) {
-            int wban = Integer.parseInt(record.get("\"WBAN_ID\"").replace("\"", ""));
-            String county = record.get("\"COUNTY\"").replace("\"", "");
-            String state = record.get("\"STATE_PROVINCE\"").replace("\"", "");
-            toReturn.add(new WeatherStationRecord(wban, county, state, 0d, 0d));
+            int wban = Integer.parseInt(record.get("WBAN"));
+            double latitude = Double.parseDouble(record.get("Latitude"));
+            double longitude = Double.parseDouble(record.get("Longitude"));
+            toReturn.add(new QCWeatherStationRecord(wban, latitude, longitude));
         }
         return toReturn;
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(WeatherStationFileInfo.location);
-        return CSVFormat.newFormat(WeatherStationFileInfo.delimiter).withHeader().parse(in);
+        Reader in = new FileReader(QCWeatherStationFileInfo.location);
+        return CSVFormat.DEFAULT.withHeader().parse(in);
     }
-    
 }

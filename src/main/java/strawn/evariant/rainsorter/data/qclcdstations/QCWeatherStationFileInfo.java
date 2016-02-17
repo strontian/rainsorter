@@ -13,26 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.weatherstations;
+package strawn.evariant.rainsorter.data.qclcdstations;
 
 /**
  *
  * @author davidstrawn
  */
-public class WeatherStationRecord {
+public class QCWeatherStationFileInfo {
     
-    public int wbanId;
-    public String county;
-    public String state;
-    public double latitude;
-    public double longitude;
-    
-    public WeatherStationRecord(int wbanId, String county, String state, double latitude, double longitude) {
-        this.wbanId = wbanId;
-        this.county = county;
-        this.state = state;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+    public static final String location = "data/QCLCD201505/201505stations.txt";
+    public static final char delimiter = ',';
     
 }
