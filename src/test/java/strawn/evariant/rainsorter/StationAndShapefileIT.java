@@ -15,12 +15,8 @@
  */
 package strawn.evariant.rainsorter;
 
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.Point;
 import java.io.IOException;
 import java.util.List;
-import org.geotools.feature.FeatureIterator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
@@ -44,7 +40,7 @@ public class StationAndShapefileIT {
     private static final double PORTLAND_LONGITUDE = -122.409;
     private static final String PORTLAND_FIPS_CODE = "38900";
     
-    private FeatureIterator<SimpleFeature> features;
+    private List<SimpleFeature> features;
     private List<QCWeatherStationRecord> stations;
     
     @Before
@@ -60,8 +56,7 @@ public class StationAndShapefileIT {
      */
     @Test
     public void portlandIsInPortland() {
-        while (features.hasNext()) {
-            SimpleFeature feature = features.next();
+        for (SimpleFeature feature : features) {
             if(GeometryTools.isPointInRegion(PORTLAND_LONGITUDE, PORTLAND_LATITUDE, feature)) {
                 Assert.assertEquals(PORTLAND_FIPS_CODE, feature.getProperty("CBSAFP").getValue().toString());
             }
@@ -70,7 +65,20 @@ public class StationAndShapefileIT {
     
     @Test
     public void allStationsBelongToOnlyOneRegion() {
-        
+        for(QCWeatherStationRecord station : stations) {
+            int featureMatchCount = 0;
+            for (SimpleFeature feature : features) {
+                if(GeometryTools.isPointInRegion(station.longitude, station.latitude, feature)) {
+                    featureMatchCount++;
+                    if(featureMatchCount > 1) {
+                        System.out.println("Overmatch Station!:" + station.wban + ", feature:" + feature.getAttribute("CBSAFP").toString());
+                    }
+                }
+            }
+            if(featureMatchCount == 0) {
+                System.out.println("Unmatched Station!:" + station.wban);
+            }
+        }
     }
             
 }
