@@ -12,8 +12,7 @@ Data from three government published data sets is used by rainsorter to calculat
 
 Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N  
 Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip  
-Date: May 2015
-
+Date: May 2015  
 Description: QCLCD contains two data sets of interest:
   1. Hourly precipitation data for each weather station
   2. List of weather stations
@@ -22,14 +21,14 @@ Description: QCLCD contains two data sets of interest:
 
 Website: http://www.census.gov/popest/about/geo/terms.html  
 Download: http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2015_PEPANNRES  
-Date: July 2014
+Date: July 2014  
 Description: US Census population estimates broken down by MSA.
 
 **3. TIGER/Line® Shapefiles** 
 
 Website: https://www.census.gov/geo/maps-data/data/tiger-line.html  
 Download: ftp://ftp2.census.gov/geo/tiger  
-Date: August 2015
+Date: August 2015  
 Description: GIS data describing the geographical area covered by each MSA.
 
 ## Definitions and Methodology
@@ -38,11 +37,11 @@ Description: GIS data describing the geographical area covered by each MSA.
 
 The United States is divided into geographic areas called Core Based Statistical Areas(CBSA). CBSAs can be either Metropolitan Statistical Areas(MSA) or Micropolitan Statistical Areas, of which this program concerns only the former. CBSAs(and therefore MSAs) are composed of counties and county equivalents.
 
-https://en.wikipedia.org/wiki/Core-based_statistical_area
+See: https://en.wikipedia.org/wiki/Core-based_statistical_area
 
 MSAs are designated by a GEOID code. This 5-digit code appears in the Shapefile data as an attribute named 'CBSAFP', and in the census data as a field named 'Id2.' It may also be referred to as a CBSA code.  
 
-http://www.census.gov/geo/reference/gtc/gtc_cbsa.html
+See: http://www.census.gov/geo/reference/gtc/gtc_cbsa.html
 
 **Geographic Description of MSAs**
 
