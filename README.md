@@ -33,8 +33,8 @@ Description: GIS data describing the geographical area covered by each MSA.
 
 ## Visualizations
 
-http://strontian.github.io/rainsorter/usamap.html
-http://strontian.github.io/rainsorter/top20.html
+http://strontian.github.io/rainsorter/usamap.html  
+http://strontian.github.io/rainsorter/top20.html  
 
 ## Definitions and Methodology
 
