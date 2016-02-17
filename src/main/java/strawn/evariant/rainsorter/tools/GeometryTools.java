@@ -28,6 +28,13 @@ import org.opengis.feature.simple.SimpleFeature;
  */
 public class GeometryTools {
     
+    /**
+     * 
+     * @param longitude The longitude of the point
+     * @param latitude The latitude of the point
+     * @param region SimpleFeature generated from a Shapefile
+     * @return true if the coordinates are enclosed by the region, false otherwise
+     */
     public static boolean isPointInRegion(double longitude, double latitude, SimpleFeature region) {
         GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory(null);
         Coordinate coordinate = new Coordinate(longitude, latitude);
