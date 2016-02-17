@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter.engine;
+package strawn.evariant.rainsorter.tools;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +26,8 @@ import java.util.Map;
 import org.opengis.feature.simple.SimpleFeature;
 import strawn.evariant.rainsorter.data.msapop.MSAPopulationRecord;
 import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
+import strawn.evariant.rainsorter.engine.MetropolitanStatisticalArea;
+import strawn.evariant.rainsorter.engine.WeatherStation;
 
 /**
  * A collection of methods for converting from data structure to another. 

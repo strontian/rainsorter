@@ -71,5 +71,11 @@ Once the total precipitation is calculated, it is multiplied by the population t
 
 ## License
 
-LGPL
+rainmaker is released under LGPL
+
+## Dependencies
+
+commons-csv (Apache 2.0) https://commons.apache.org/proper/commons-csv/
+Gson (Apache 2.0)  https://github.com/google/gson
+GeoTools (LGPL 2.1) http://www.geotools.org
 

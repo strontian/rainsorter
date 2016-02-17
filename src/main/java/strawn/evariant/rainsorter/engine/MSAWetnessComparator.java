@@ -29,7 +29,13 @@ import java.util.Comparator;
  * @author davidstrawn
  */
 public class MSAWetnessComparator implements Comparator<MetropolitanStatisticalArea> {
-
+    /**
+     * Positive when o2 is greater than o1
+     * 
+     * @param o1
+     * @param o2
+     * @return 
+     */
     @Override
     public int compare(MetropolitanStatisticalArea o1, MetropolitanStatisticalArea o2) {
         double wetnessDifference = o2.getWetnessRating() - o1.getWetnessRating();

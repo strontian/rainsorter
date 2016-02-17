@@ -19,7 +19,7 @@
 package strawn.evariant.rainsorter;
 
 import strawn.evariant.rainsorter.engine.WeatherStation;
-import strawn.evariant.rainsorter.engine.DataOrganizationMethods;
+import strawn.evariant.rainsorter.tools.DataOrganizationMethods;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;

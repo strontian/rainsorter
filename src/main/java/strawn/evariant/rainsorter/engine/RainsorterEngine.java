@@ -18,6 +18,7 @@
  */
 package strawn.evariant.rainsorter.engine;
 
+import strawn.evariant.rainsorter.tools.DataOrganizationMethods;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
