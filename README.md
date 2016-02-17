@@ -76,7 +76,7 @@ Once the total precipitation is calculated, it is multiplied by the population t
 
 ## Output
 
-Running the program creates a file [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv)
+Running the program creates the file [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv), which is a list of MSA's and their Population Wetness values, in descending order.
 
 ## License
 
