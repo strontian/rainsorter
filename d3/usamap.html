@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="datamaps.usa.min.js"></script>
+<div>
+	<h1>Continental U.S. MSAs by Population Wetness Quintile</h2>
+</div>
+<div id="container" style="position: relative; width: 1000px; height: 500px;"></div>
+<script>
+		
+		var fillKeys = { 
+			1: 'Rainiest',
+			2: 'Rainy',
+			3: 'Average',
+			4: 'Dry',
+			5: 'Driest'
+		};
+
+		d3.json("MSA_By_Quintiles2.json", function(error, data) {
+			
+			data.map(function(datum) {datum['radius'] = 12; datum['fillKey'] = fillKeys[datum.quintile]});
+			/*
+			dataWithNames = data.reduce(function(themap, obj) { 
+				themap[obj.name] = obj;
+				return themap; 
+			}, {});
+			*/
+
+			console.log(data);
+			
+			var map = new Datamap({
+	    	scope: 'usa',
+	    	element: document.getElementById('container'),
+	    	fills: {
+				  'Rainiest': '#003399',
+				  'Rainy': '#00ffff',
+				  'Average': '#66ff33',
+				  'Dry': '#ffff66',
+				  'Driest': '#ff6600',
+				  defaultFill: '#999966'	
+				}
+	   	});
+	   	map.bubbles(data);
+	   	map.legend();
+    });
+
+</script>
