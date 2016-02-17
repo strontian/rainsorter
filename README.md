@@ -33,10 +33,11 @@ Description: GIS data describing the geographical area covered by each MSA.
 
 ## Visualizations
 
+http://strontian.github.io/rainsorter/top20.html  
 ![alt tag](images/top20.jpg)
+Interactive Version:
 http://strontian.github.io/rainsorter/usamap.html
 ![alt tag](images/usamap.jpg)  
-http://strontian.github.io/rainsorter/top20.html  
 
 ## Definitions and Methodology
 
@@ -75,7 +76,7 @@ Once the total precipitation is calculated, it is multiplied by the population t
 
 ## Output
 
-Running the program creates a file output/MSAs_By_Wetness.csv
+Running the program creates a file [output/MSAs_By_Wetness.csv][output/MSAs_By_Wetness.csv]
 
 ## License
 
