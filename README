@@ -65,8 +65,11 @@ Precipitation Data is broken down hourly and consists of:
 
 Population Wetness Calculation
 
-Once all weather stations are associated with an MSA, the total amount of precipitation recorded by the station during the hours of 7am-12am is summed for the period 
+Once all weather stations are associated with an MSA, the total amount of precipitation recorded by the station during the hours of 7am-12am is summed for the entire period. Suspect data is excluded. If multiple stations are located in an MSA, their precipitation is averaged. For cases when there are multiple stations in an MSA and one or more reports suspect data, those stations are excluded from the average for any hours during which suspect data was reported.
+
+Once the total precipitation is calculated, it is multiplied by the population to find the Population Wetness.
 
 ## License
 
+LGPL
 

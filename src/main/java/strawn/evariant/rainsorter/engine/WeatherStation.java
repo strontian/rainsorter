@@ -16,16 +16,32 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter.exceptions;
+package strawn.evariant.rainsorter.engine;
+
+import java.util.ArrayList;
+import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
  *
  * @author davidstrawn
  */
-public class InvalidDataException extends Exception {
-
-    public InvalidDataException(String string) {
-        super(string);
+public class WeatherStation {
+    
+    public ArrayList<PrecipitationRecord> readings;
+    public String wbanID;
+    public double latitude;
+    public double longitude;
+    
+    public WeatherStation(QCWeatherStationRecord record) {
+        wbanID = record.wban;
+        latitude = record.latitude;
+        longitude = record.longitude;
+        readings = new ArrayList();
+    }
+    
+    public void addPrecipitationRecord(PrecipitationRecord record) {
+        readings.add(record);
     }
     
 }

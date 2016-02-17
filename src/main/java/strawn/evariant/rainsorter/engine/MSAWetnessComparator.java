@@ -16,16 +16,29 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter.exceptions;
+package strawn.evariant.rainsorter.engine;
+
+import java.util.Comparator;
 
 /**
  *
+ * Comparator for sorting MetropolitanStatisticalArea by population wetness.
+ * 
+ * Using Collections.sort with this comparator returns a list in descending order
+ * 
  * @author davidstrawn
  */
-public class InvalidDataException extends Exception {
+public class MSAWetnessComparator implements Comparator<MetropolitanStatisticalArea> {
 
-    public InvalidDataException(String string) {
-        super(string);
+    @Override
+    public int compare(MetropolitanStatisticalArea o1, MetropolitanStatisticalArea o2) {
+        double wetnessDifference = o2.getWetnessRating() - o1.getWetnessRating();
+        if(wetnessDifference > 0) {
+            return 1;
+        }else if(wetnessDifference < 0) {
+            return -1;
+        }
+        return 0;
     }
     
 }
