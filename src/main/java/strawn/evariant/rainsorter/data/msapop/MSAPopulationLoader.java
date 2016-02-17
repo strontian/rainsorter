@@ -46,7 +46,7 @@ public class MSAPopulationLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(MSAPopulationFileInfo.location);
+        Reader in = new FileReader(MSAPopulationFileInfo.LOCATION);
         return CSVFormat.DEFAULT.withHeader().parse(in);
     }
     

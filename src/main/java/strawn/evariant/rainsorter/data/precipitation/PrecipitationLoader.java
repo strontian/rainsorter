@@ -55,7 +55,7 @@ public class PrecipitationLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(PrecipitationFileInfo.location);
+        Reader in = new FileReader(PrecipitationFileInfo.LOCATION);
         return CSVFormat.DEFAULT.withHeader().parse(in);
     }
 }

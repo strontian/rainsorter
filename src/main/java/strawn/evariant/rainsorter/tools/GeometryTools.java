@@ -21,7 +21,6 @@ import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
 import org.geotools.geometry.jts.JTSFactoryFinder;
 import org.opengis.feature.simple.SimpleFeature;
-import strawn.evariant.rainsorter.data.weatherstations.WeatherStationRecord;
 
 /**
  *
@@ -29,9 +28,9 @@ import strawn.evariant.rainsorter.data.weatherstations.WeatherStationRecord;
  */
 public class GeometryTools {
     
-    public static boolean isStationInRegion(WeatherStationRecord station, SimpleFeature region) {
-        GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory( null );
-        Coordinate coordinate = new Coordinate(station.longitude, station.latitude);
+    public static boolean isPointInRegion(double longitude, double latitude, SimpleFeature region) {
+        GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory(null);
+        Coordinate coordinate = new Coordinate(longitude, latitude);
         Point point = geometryFactory.createPoint(coordinate);
         return point.within((Geometry)region.getDefaultGeometry());
     }

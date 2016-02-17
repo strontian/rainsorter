@@ -43,7 +43,7 @@ public class QCWeatherStationLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(QCWeatherStationFileInfo.location);
+        Reader in = new FileReader(QCWeatherStationFileInfo.LOCATION);
         return CSVFormat.DEFAULT.withHeader().parse(in);
     }
 }

@@ -21,7 +21,7 @@ package strawn.evariant.rainsorter.data.weatherstations;
  */
 public class WeatherStationFileInfo {
     
-    public static final String location = "data/STATION_INFO/wbanmasterlist.psv";
-    public static final char delimiter = '|';
+    public static final String LOCATION = "data/STATION_INFO/wbanmasterlist.psv";
+    public static final char DELIMITER = '|';
     
 }

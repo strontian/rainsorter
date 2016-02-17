@@ -21,7 +21,7 @@ package strawn.evariant.rainsorter.data.qclcdstations;
  */
 public class QCWeatherStationFileInfo {
     
-    public static final String location = "data/QCLCD201505/Masters/201505stations.txt";
-    public static final char delimiter = ',';
+    public static final String LOCATION = "data/QCLCD201505/Masters/201505stations.txt";
+    public static final char DELIMITER = ',';
     
 }

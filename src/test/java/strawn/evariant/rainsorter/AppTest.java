@@ -1,4 +1,4 @@
-package strawn.evariant;
+package strawn.evariant.rainsorter;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

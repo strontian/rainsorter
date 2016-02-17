@@ -21,7 +21,7 @@ package strawn.evariant.rainsorter.data.msacounty;
  */
 public class MSACountyFileInfo {
     
-    public static final String location = "data/MSA_COUNTY_COMPOSITION/List1.csv";
-    public static final char delimiter = ',';
+    public static final String LOCATION = "data/MSA_COUNTY_COMPOSITION/List1.csv";
+    public static final char DELIMITER = ',';
     
 }

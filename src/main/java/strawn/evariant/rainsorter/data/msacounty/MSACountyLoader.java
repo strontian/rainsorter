@@ -44,7 +44,7 @@ public class MSACountyLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(MSACountyFileInfo.location);
+        Reader in = new FileReader(MSACountyFileInfo.LOCATION);
         return CSVFormat.DEFAULT.withHeader().parse(in);
     }
 }

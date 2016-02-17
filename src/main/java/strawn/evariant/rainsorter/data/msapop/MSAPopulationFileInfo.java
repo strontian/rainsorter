@@ -21,7 +21,7 @@ package strawn.evariant.rainsorter.data.msapop;
  */
 public class MSAPopulationFileInfo {
     
-    public static final String location = "data/MSA_POPULATION_2014/MSA_Population.csv";
-    public static final char delimiter = ',';
+    public static final String LOCATION = "data/MSA_POPULATION_2014/MSA_Population.csv";
+    public static final char DELIMITER = ',';
     
 }

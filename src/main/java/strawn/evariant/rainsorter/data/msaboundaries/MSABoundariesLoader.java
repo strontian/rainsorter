@@ -35,9 +35,20 @@ import org.opengis.filter.Filter;
  */
 public class MSABoundariesLoader {
     
-    public static FeatureIterator<SimpleFeature> loadBoundaries() throws IOException {
+    public static Map<Integer, SimpleFeature> getCBSAToFeaturesMap() throws IOException {
+        HashMap<Integer, SimpleFeature> toReturn = new HashMap();
+        FeatureIterator<SimpleFeature> features = loadFeatures();
+        while (features.hasNext()) {
+            SimpleFeature feature = features.next();
+            String cbsaId = feature.getProperty("CBSAFP").getValue().toString();
+            toReturn.put(Integer.parseInt(cbsaId), feature);
+        }
+        return toReturn;
+    }
+    
+    public static FeatureIterator<SimpleFeature> loadFeatures() throws IOException {
         
-        File file = new File(MSABoundariesFileInfo.location);
+        File file = new File(MSABoundariesFileInfo.LOCATION);
         Map<String, Object> map = new HashMap();
         map.put("url", file.toURI().toURL());
         
@@ -49,17 +60,6 @@ public class MSABoundariesLoader {
         
         FeatureCollection<SimpleFeatureType, SimpleFeature> collection = source.getFeatures(filter);
         
-        try (FeatureIterator<SimpleFeature> features = collection.features()) {
-            while (features.hasNext()) {
-                SimpleFeature feature = features.next();
-                System.out.print(feature.getID());
-                for(Property p: feature.getProperties()) {
-                    System.out.println(p.getName().toString() + ":" + p.getValue().toString());
-                }
-                //System.out.print(": ");
-                //System.out.println(feature.getDefaultGeometryProperty().getValue());
-            }
-        }
         return collection.features();
         
     }

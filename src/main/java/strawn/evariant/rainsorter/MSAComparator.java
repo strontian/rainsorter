@@ -23,11 +23,12 @@ import java.util.Comparator;
  */
 public class MSAComparator implements Comparator<MetropolitanStatisticalArea> {
 
+    @Override
     public int compare(MetropolitanStatisticalArea o1, MetropolitanStatisticalArea o2) {
-        double netWetness = o2.getWetnessRating() - o1.getWetnessRating();
-        if(netWetness > 0) {
+        double wetnessDifference = o2.getWetnessRating() - o1.getWetnessRating();
+        if(wetnessDifference > 0) {
             return 1;
-        }else if(netWetness < 0) {
+        }else if(wetnessDifference < 0) {
             return -1;
         }
         return 0;

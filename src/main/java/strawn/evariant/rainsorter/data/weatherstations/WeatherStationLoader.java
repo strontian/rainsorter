@@ -43,8 +43,8 @@ public class WeatherStationLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(WeatherStationFileInfo.location);
-        return CSVFormat.newFormat(WeatherStationFileInfo.delimiter).withHeader().parse(in);
+        Reader in = new FileReader(WeatherStationFileInfo.LOCATION);
+        return CSVFormat.newFormat(WeatherStationFileInfo.DELIMITER).withHeader().parse(in);
     }
     
 }
