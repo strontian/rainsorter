@@ -1,4 +1,80 @@
 # rainsorter
+<style>
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: black;
+  font: 10px sans-serif;
+  
+}
+
+</style>
+<svg class="chart"></svg>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+
+var leftMargin = 235;
+var topMargin = 45;
+var width = 840,
+    barHeight = 30;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var chart = d3.select(".chart")
+    .attr("width", width);
+
+chart.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 20 )
+        .attr("text-anchor", "middle")  
+        .style("font-size", "20px") 
+        .style("text-decoration", "underline")  
+        .text("Top 20 Wettest MSAs");
+
+d3.csv("top20.csv", type, function(error, data) {
+
+  x.domain([0, d3.max(data, function(d) { return d.Wetness; })]);
+
+  chart.attr("height", barHeight * data.length + topMargin);
+
+  var groups = chart.selectAll("g")
+      .data(data)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + ((i * barHeight) + topMargin) + ")"; });
+
+  groups.append("rect")
+      .attr("x", leftMargin)
+      .attr("width", function(d) { return x(d.Wetness)/2})
+      .attr("height", barHeight - 1);
+
+  groups.append("text")
+      .attr("x", function(d) { return leftMargin + x(d.Wetness)/2 - 3; })
+      .attr("y", barHeight / 2)
+      .attr("dy", ".35em")
+      .attr("text-anchor", "end")
+      .text(function(d) { return d.Wetness; });
+
+  groups.append("text")
+      .attr("x", leftMargin/2)
+      .attr("y", barHeight/2)
+      .attr("dy", ".35em")
+      .style("font-size", "12px") 
+      .attr("text-anchor", "middle")
+      .attr('class', 'msa')
+      .text(function(d) { return d.MSA; });
+});
+
+function type(d) {
+  d.Wetness = parseInt(d.Wetness);
+  return d;
+}
+
+</script>
 
 ## Synopsis
 
@@ -69,9 +145,13 @@ Once all weather stations are associated with an MSA, the total amount of precip
 
 Once the total precipitation is calculated, it is multiplied by the population to find the Population Wetness.
 
+## Output
+
+Running the program creates a file output/MSAs_By_Wetness.csv
+
 ## License
 
-rainmaker is released under LGPL
+rainmaker is released under LGPL 2.1
 
 ## Dependencies
 
