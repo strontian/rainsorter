@@ -45,8 +45,9 @@ public class StationDataAndPrecipitationIT {
     public void setup() throws IOException {
         precipRecords = PrecipitationLoader.loadRecordsFromDisk();
         stations = QCWeatherStationLoader.loadRecordsFromDisk();
-        stationsByWBAN = RainsorterEngine.mapWBANToStation(stations);
+        stationsByWBAN = DataOrganizationMethods.mapWBANToStation(stations);
     }
+    
     /**
      * Makes sure that for every record of rainfall, there is a station with a matching WBAN
      */
@@ -59,7 +60,9 @@ public class StationDataAndPrecipitationIT {
             }
         }
     }
-    
+    /**
+     * Make sure we either have complete data or no data for every station
+     */
     @Test
     public void testAllStationsHaveCompletePrecipitationData() {
         for(PrecipitationRecord record : precipRecords) {

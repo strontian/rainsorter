@@ -45,7 +45,7 @@ public class MetropolitanStatisticalAreaIT {
     @Before
     public void setup() throws IOException {
         populationRecords = MSAPopulationLoader.loadRecordsFromDisk();
-        regions = MSAShapefileLoader.getCBSAToFeaturesMap();
+        regions = DataOrganizationMethods.getCBSAToFeaturesMap(MSAShapefileLoader.loadFeatures());
     }
     
     /**

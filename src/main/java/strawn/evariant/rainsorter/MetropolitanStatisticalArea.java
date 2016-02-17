@@ -15,7 +15,8 @@
  */
 package strawn.evariant.rainsorter;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,14 +24,20 @@ import java.util.HashSet;
  */
 public class MetropolitanStatisticalArea {
     
+    public String msaName;
+    public String CBSACode;
     public int population;
+    public List<WeatherStation> stations;
     
-    public MetropolitanStatisticalArea() {
-        
+    public MetropolitanStatisticalArea(String msaName, String CBSAcode, int population) {
+        this.msaName = msaName;
+        this.CBSACode = CBSAcode;
+        this.population = population;
+        stations = new ArrayList();
     }
     
     public void addStation(WeatherStation station) {
-        
+        stations.add(station);
     }
     
     public double getWetnessRating() {

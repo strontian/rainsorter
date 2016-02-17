@@ -29,6 +29,8 @@ import org.opengis.feature.simple.SimpleFeature;
 public class GeometryTools {
     
     /**
+     * Takes a coordinate in the form of longitude and latitude, and a SimpleFeature, and determines whether or not
+     * the coordinate is enclosed by the region described by the SimpleFeature
      * 
      * @param longitude The longitude of the point
      * @param latitude The latitude of the point

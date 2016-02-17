@@ -36,16 +36,6 @@ import org.opengis.filter.Filter;
  */
 public class MSAShapefileLoader {
     
-    public static Map<String, SimpleFeature> getCBSAToFeaturesMap() throws IOException {
-        HashMap<String, SimpleFeature> toReturn = new HashMap();
-        List<SimpleFeature> features = loadFeatures();
-        for (SimpleFeature feature : features) {
-            String cbsaId = feature.getProperty("CBSAFP").getValue().toString();
-            toReturn.put(cbsaId, feature);
-        }
-        return toReturn;
-    }
-    
     public static ArrayList<SimpleFeature> loadFeatures() throws IOException {
         ArrayList<SimpleFeature> toReturn = new ArrayList();
         File file = new File(MSAShapefileFileInfo.LOCATION);
