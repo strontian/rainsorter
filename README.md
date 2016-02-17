@@ -31,6 +31,12 @@ Download: ftp://ftp2.census.gov/geo/tiger
 Date: August 2015  
 Description: GIS data describing the geographical area covered by each MSA.
 
+## Visualizations
+
+
+![ScreenShot](https://raw.github.com/strontian/rainsorter/master/d3/usamap.html)
+![ScreenShot](https://raw.github.com/strontian/rainsorter/tree/master/d3/usamap.html)
+
 ## Definitions and Methodology
 
 **Metropolitan Statistical Areas**
