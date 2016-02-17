@@ -10,8 +10,8 @@ Data from three government published data sets is used by rainsorter to calculat
 
 **1. Quality Controlled Local Climatological Data(QCLCD)**
 
-Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
-Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
+Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N 
+Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip 
 Date: May 2015
 
 Description: QCLCD contains two data sets of interest:
