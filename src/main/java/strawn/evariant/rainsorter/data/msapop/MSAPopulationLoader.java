@@ -39,8 +39,7 @@ public class MSAPopulationLoader {
             String msaName = indentifierSplit[0].substring(0, indentifierSplit[0].length() - 1);
             String msaState = indentifierSplit[1];
             int population = Integer.parseInt(record.get("Population Estimate (as of July 1) - 2014"));
-            int cbsaCode = Integer.parseInt(record.get("Id2"));
-            toReturn.add(new MSAPopulationRecord(msaName, msaState, population, cbsaCode));
+            toReturn.add(new MSAPopulationRecord(msaName, msaState, record.get("Id2"), population));
         }
         return toReturn;
     }

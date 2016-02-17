@@ -17,6 +17,7 @@ package strawn.evariant.rainsorter;
 
 import java.util.ArrayList;
 import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
  *
@@ -29,12 +30,15 @@ public class WeatherStation {
     public double latitude;
     public double longitude;
     
-    public WeatherStation() {
-        
+    public WeatherStation(QCWeatherStationRecord record) {
+        wbanID = record.wban;
+        latitude = record.latitude;
+        longitude = record.longitude;
+        readings = new ArrayList();
     }
     
-    public void addPrecipitationRecord() {
-        
+    public void addPrecipitationRecord(PrecipitationRecord record) {
+        readings.add(record);
     }
     
 }

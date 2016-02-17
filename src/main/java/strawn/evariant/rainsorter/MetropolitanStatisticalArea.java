@@ -24,13 +24,12 @@ import java.util.HashSet;
 public class MetropolitanStatisticalArea {
     
     public int population;
-    public HashSet<String> counties;
     
     public MetropolitanStatisticalArea() {
-        counties = new HashSet();
+        
     }
     
-    public void addStation() {
+    public void addStation(WeatherStation station) {
         
     }
     

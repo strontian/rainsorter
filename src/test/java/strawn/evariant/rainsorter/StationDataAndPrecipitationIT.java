@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import strawn.evariant.rainsorter.data.precipitation.PrecipitationLoader;
 import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
@@ -38,22 +38,20 @@ public class StationDataAndPrecipitationIT {
     
     List<PrecipitationRecord> precipRecords;
     List<QCWeatherStationRecord> stations;
-    HashMap<String, QCWeatherStationRecord> stationsByWBAN;
+    HashMap<String, WeatherStation> stationsByWBAN;
+    public static final int TOTAL_DAYTIME_HOURS = 527;
     
-    @BeforeClass
+    @Before
     public void setup() throws IOException {
         precipRecords = PrecipitationLoader.loadRecordsFromDisk();
         stations = QCWeatherStationLoader.loadRecordsFromDisk();
-        stationsByWBAN = new HashMap();
-        for(QCWeatherStationRecord station : stations) {
-            stationsByWBAN.put(station.wban, station);
-        }
+        stationsByWBAN = RainsorterEngine.mapWBANToStation(stations);
     }
     /**
      * Makes sure that for every record of rainfall, there is a station with a matching WBAN
      */
     @Test
-    public void allHBANsPresent() {
+    public void testAllPrecipitationCanBeAttributedToHBAN() {
         Set<String> keys = stationsByWBAN.keySet();
         for(PrecipitationRecord record : precipRecords) {
             if(!keys.contains(record.wbanId)) {
@@ -61,4 +59,18 @@ public class StationDataAndPrecipitationIT {
             }
         }
     }
+    
+    @Test
+    public void testAllStationsHaveCompletePrecipitationData() {
+        for(PrecipitationRecord record : precipRecords) {
+            stationsByWBAN.get(record.wbanId).addPrecipitationRecord(record);
+        }
+        for(WeatherStation station : stationsByWBAN.values()) {
+            int readingsCount = station.readings.size();
+            if(readingsCount != 0 && readingsCount != 527) {
+                Assert.fail();
+            }
+        }
+    }
+    
 }

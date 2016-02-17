@@ -18,7 +18,8 @@ package strawn.evariant.rainsorter;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import strawn.evariant.rainsorter.data.msacounty.MSACountyRecord;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
+import strawn.evariant.rainsorter.unused.MSACountyRecord;
 
 /**
  *
@@ -29,12 +30,20 @@ public class RainsorterEngine {
     private HashMap<String, WeatherStation> wbanToStationMap;
     private List<MetropolitanStatisticalArea> metroAreas;
     
-    public RainsorterEngine(Collection<MSACountyRecord> areas) {
-        wbanToStationMap = new HashMap();
+    public RainsorterEngine(Collection<MSACountyRecord> areas, List<QCWeatherStationRecord> stationRecords) {
+        wbanToStationMap = mapWBANToStation(stationRecords);
         //create MSA from Population records
         //add geotools regions to MSAs
         //map stations to MSAs
         //add weather readings to stations
+    }
+    
+    public static HashMap<String, WeatherStation> mapWBANToStation(List<QCWeatherStationRecord> stationRecords) {
+        HashMap<String, WeatherStation> stationsByWBAN = new HashMap();
+        for(QCWeatherStationRecord station : stationRecords) {
+            stationsByWBAN.put(station.wban, new WeatherStation(station));
+        }
+        return stationsByWBAN;
     }
     
 }

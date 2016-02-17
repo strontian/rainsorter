@@ -21,7 +21,7 @@ package strawn.evariant.rainsorter.data.precipitation;
  */
 public class PrecipitationFileInfo {
     
-    public static final String LOCATION = "data/QCLCD201505/201505precip.txt";
+    public static final String LOCATION = "data/QCLCD201505/201505_daytime_precip.csv";
     public static final char DELIMITER = ',';
     
 }

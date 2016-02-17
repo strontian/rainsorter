@@ -13,26 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.weatherstations;
+package strawn.evariant.rainsorter;
+
+import java.util.Comparator;
 
 /**
  *
  * @author davidstrawn
  */
-public class WeatherStationRecord {
-    
-    public int wbanId;
-    public String county;
-    public String state;
-    public double latitude;
-    public double longitude;
-    
-    public WeatherStationRecord(int wbanId, String county, String state, double latitude, double longitude) {
-        this.wbanId = wbanId;
-        this.county = county;
-        this.state = state;
-        this.latitude = latitude;
-        this.longitude = longitude;
+public class MSAWetnessComparator implements Comparator<MetropolitanStatisticalArea> {
+
+    @Override
+    public int compare(MetropolitanStatisticalArea o1, MetropolitanStatisticalArea o2) {
+        double wetnessDifference = o2.getWetnessRating() - o1.getWetnessRating();
+        if(wetnessDifference > 0) {
+            return 1;
+        }else if(wetnessDifference < 0) {
+            return -1;
+        }
+        return 0;
     }
     
 }

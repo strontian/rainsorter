@@ -13,15 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.weatherstations;
+package strawn.evariant.rainsorter.unused;
 
 /**
  *
  * @author davidstrawn
  */
-public class WeatherStationFileInfo {
+public class WeatherStationRecord {
     
-    public static final String LOCATION = "data/STATION_INFO/wbanmasterlist.psv";
-    public static final char DELIMITER = '|';
+    public int wbanId;
+    public String county;
+    public String state;
+    public double latitude;
+    public double longitude;
+    
+    public WeatherStationRecord(int wbanId, String county, String state, double latitude, double longitude) {
+        this.wbanId = wbanId;
+        this.county = county;
+        this.state = state;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
     
 }

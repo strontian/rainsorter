@@ -21,8 +21,10 @@ import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
  * limitations under the License.
  */
 public class App {
+    
     public static void main( String[] args ) throws IOException {
         List<QCWeatherStationRecord> records = QCWeatherStationLoader.loadRecordsFromDisk();
         
     }
+    
 }

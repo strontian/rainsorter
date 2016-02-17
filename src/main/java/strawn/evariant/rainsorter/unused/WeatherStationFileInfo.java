@@ -13,24 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.msacounty;
+package strawn.evariant.rainsorter.unused;
 
 /**
  *
  * @author davidstrawn
  */
-public class MSACountyRecord {
+public class WeatherStationFileInfo {
     
-    public String countyName;
-    public String msaName;
-    public String stateName;
-    public int cbsaCode;
-    
-    public MSACountyRecord(String countyName, String msaName, String stateName, int cbsaCode){ 
-        this.countyName = countyName;
-        this.msaName = msaName;
-        this.stateName = stateName;
-        this.cbsaCode = cbsaCode;
-    };
+    public static final String LOCATION = "data/STATION_INFO/wbanmasterlist.psv";
+    public static final char DELIMITER = '|';
     
 }

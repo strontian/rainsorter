@@ -17,7 +17,7 @@ package strawn.evariant.rainsorter.datatasks;
 
 import java.io.IOException;
 import org.apache.commons.csv.CSVRecord;
-import strawn.evariant.rainsorter.data.weatherstations.WeatherStationLoader;
+import strawn.evariant.rainsorter.unused.WeatherStationLoader;
 
 /**
  *

@@ -13,25 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter;
-
-import java.util.Comparator;
+package strawn.evariant.rainsorter.unused;
 
 /**
  *
  * @author davidstrawn
  */
-public class MSAComparator implements Comparator<MetropolitanStatisticalArea> {
-
-    @Override
-    public int compare(MetropolitanStatisticalArea o1, MetropolitanStatisticalArea o2) {
-        double wetnessDifference = o2.getWetnessRating() - o1.getWetnessRating();
-        if(wetnessDifference > 0) {
-            return 1;
-        }else if(wetnessDifference < 0) {
-            return -1;
-        }
-        return 0;
-    }
+public class MSACountyFileInfo {
+    
+    public static final String LOCATION = "data/MSA_COUNTY_COMPOSITION/List1.csv";
+    public static final char DELIMITER = ',';
     
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.msacounty;
+package strawn.evariant.rainsorter.unused;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,23 +28,23 @@ import org.apache.commons.csv.CSVRecord;
  *
  * @author davidstrawn
  */
-public class MSACountyLoader {
+public class WeatherStationLoader {
     
-    public static List<MSACountyRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
-        ArrayList<MSACountyRecord> toReturn = new ArrayList();
+    public static List<WeatherStationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
+        ArrayList<WeatherStationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
         for (CSVRecord record : records) {
-            String countyName = record.get("County/County Equivalent");
-            String countMSA = record.get("CBSA Title");
-            String countyState = record.get("State Name");
-            int cbsaCode = Integer.parseInt(record.get("CBSA Code"));
-            toReturn.add(new MSACountyRecord(countyName, countMSA, countyState, cbsaCode));
+            int wban = Integer.parseInt(record.get("\"WBAN_ID\"").replace("\"", ""));
+            String county = record.get("\"COUNTY\"").replace("\"", "");
+            String state = record.get("\"STATE_PROVINCE\"").replace("\"", "");
+            toReturn.add(new WeatherStationRecord(wban, county, state, 0d, 0d));
         }
         return toReturn;
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(MSACountyFileInfo.LOCATION);
-        return CSVFormat.DEFAULT.withHeader().parse(in);
+        Reader in = new FileReader(WeatherStationFileInfo.LOCATION);
+        return CSVFormat.newFormat(WeatherStationFileInfo.DELIMITER).withHeader().parse(in);
     }
+    
 }
