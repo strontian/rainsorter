@@ -2,8 +2,11 @@ package strawn.evariant;
 
 import java.io.IOException;
 import java.util.List;
+import strawn.evariant.rainsorter.MetropolitanStatisticalArea;
+import strawn.evariant.rainsorter.RainsorterEngine;
 import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationLoader;
 import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
+import strawn.evariant.rainsorter.exceptions.InvalidDataException;
 
 /*
  * Copyright 2016 davidstrawn.
@@ -22,9 +25,12 @@ import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
  */
 public class App {
     
-    public static void main( String[] args ) throws IOException {
-        
-        
+    public static void main( String[] args ) throws IOException, InvalidDataException {
+        RainsorterEngine engine = RainsorterEngine.createEngine();
+        List<MetropolitanStatisticalArea> msas = engine.getSortedMSAs();
+        for(MetropolitanStatisticalArea msa : msas) {
+            System.out.println(msa.msaName + ", wetness:" + msa.getWetnessRating());
+        }
     }
     
 }

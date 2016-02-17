@@ -19,6 +19,8 @@ import java.util.Comparator;
 
 /**
  *
+ * Comparator for sorting MetropolitanStatisticalArea by population wetness
+ * 
  * @author davidstrawn
  */
 public class MSAWetnessComparator implements Comparator<MetropolitanStatisticalArea> {
