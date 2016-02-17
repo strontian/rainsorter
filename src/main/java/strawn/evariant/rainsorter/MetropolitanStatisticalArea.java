@@ -88,13 +88,11 @@ public class MetropolitanStatisticalArea {
         isWetnessComputed = true;
     }
     
-    public double getWetnessRating() {
-        if(isWetnessComputed) {
-            return wetnessRating;
-        }else {
+    public int getWetnessRating() {
+        if(!isWetnessComputed) {
             calculatePopulationWetness();
-            return wetnessRating;
         }
+        return (int)wetnessRating;
     }
     
     public void dropEmptyStations() {
