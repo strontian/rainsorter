@@ -2,3 +2,4 @@
 nb-configuration.xml
 /target/
 *.DS_Store
+/data/unused
