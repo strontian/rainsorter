@@ -33,7 +33,9 @@ Description: GIS data describing the geographical area covered by each MSA.
 
 ## Visualizations
 
-http://strontian.github.io/rainsorter/usamap.html  
+![alt tag](images/top20.jpg)
+http://strontian.github.io/rainsorter/usamap.html
+![alt tag](images/usamap.jpg)  
 http://strontian.github.io/rainsorter/top20.html  
 
 ## Definitions and Methodology
