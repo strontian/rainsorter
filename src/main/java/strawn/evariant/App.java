@@ -23,12 +23,17 @@ import java.util.List;
 import strawn.evariant.rainsorter.engine.MetropolitanStatisticalArea;
 import strawn.evariant.rainsorter.engine.RainsorterEngine;
 import strawn.evariant.rainsorter.exceptions.InvalidDataException;
+import strawn.evariant.rainsorter.output.OutputCreator;
 
 public class App {
     
     public static void main( String[] args ) throws IOException, InvalidDataException {
         RainsorterEngine engine = RainsorterEngine.createEngine();
         List<MetropolitanStatisticalArea> msas = engine.getSortedMSAs();
+        
+        OutputCreator.writeWetnessCsv(msas);
+        OutputCreator.writeMSAQuintiles(msas);
+        
         for(MetropolitanStatisticalArea msa : msas) {
             System.out.println(msa.msaName + ", wetness:" + msa.getWetnessRating());
         }

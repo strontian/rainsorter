@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import strawn.evariant.rainsorter.engine.MetropolitanStatisticalArea;
+import strawn.evariant.rainsorter.engine.WeatherStation;
 import strawn.evariant.rainsorter.tools.IOTools;
 
 /**
@@ -30,14 +31,33 @@ import strawn.evariant.rainsorter.tools.IOTools;
  */
 public class OutputCreator {
     
-    public static String outputLocation = "output/MSAs_By_Wetness.csv";
+    public static final String WETNESS_OUTPUT_LOCATION = "output/MSAs_By_Wetness.csv";
+    public static final String QUINTILES_OUTPUT_LOCATION = "output/MSA_By_Quintiles.json";
     
     public static void writeWetnessCsv(List<MetropolitanStatisticalArea> msas) throws IOException {
         List<String> toWrite = new ArrayList();
         for(MetropolitanStatisticalArea msa : msas) {
             toWrite.add(new MSAWetness(msa.msaName, msa.getWetnessRating()).getOutputString());
         }
-        IOTools.writeList(outputLocation, toWrite);
+        IOTools.writeList(WETNESS_OUTPUT_LOCATION, toWrite);
+    }
+    
+    public static void writeMSAQuintiles(List<MetropolitanStatisticalArea> msas) throws IOException {
+        List<Object> toWrite = new ArrayList();
+        for(int i = 0; i < msas.size(); i++) {
+            MetropolitanStatisticalArea msa = msas.get(i);
+            if(msa.stations.isEmpty()) {
+                continue;
+            }
+            WeatherStation station = msa.stations.get(0);
+            toWrite.add(new MSAWithQuintileAndCoordinates(station.latitude, station.longitude, msa.msaName, getQuintile(i, msas.size())));
+        }
+        IOTools.writeAsJSON(WETNESS_OUTPUT_LOCATION, toWrite);
+    }
+    
+    public static int getQuintile(int index, int total) {
+        double boundary = (double)total/5d;
+        return 1 + (int)((double)index/boundary);
     }
     
 }
