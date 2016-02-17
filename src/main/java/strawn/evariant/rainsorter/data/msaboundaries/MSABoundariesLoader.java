@@ -35,7 +35,8 @@ import org.opengis.filter.Filter;
  */
 public class MSABoundariesLoader {
     
-    public static void loadBoundaries() throws IOException {
+    public static FeatureIterator<SimpleFeature> loadBoundaries() throws IOException {
+        
         File file = new File(MSABoundariesFileInfo.location);
         Map<String, Object> map = new HashMap();
         map.put("url", file.toURI().toURL());
@@ -47,6 +48,7 @@ public class MSABoundariesLoader {
         Filter filter = Filter.INCLUDE; // ECQL.toFilter("BBOX(THE_GEOM, 10,20,30,40)")
         
         FeatureCollection<SimpleFeatureType, SimpleFeature> collection = source.getFeatures(filter);
+        
         try (FeatureIterator<SimpleFeature> features = collection.features()) {
             while (features.hasNext()) {
                 SimpleFeature feature = features.next();
@@ -58,6 +60,7 @@ public class MSABoundariesLoader {
                 //System.out.println(feature.getDefaultGeometryProperty().getValue());
             }
         }
+        return collection.features();
         
     }
     

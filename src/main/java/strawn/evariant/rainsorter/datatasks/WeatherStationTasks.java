@@ -17,6 +17,8 @@ package strawn.evariant.rainsorter.datatasks;
 
 import java.io.IOException;
 import org.apache.commons.csv.CSVRecord;
+import strawn.evariant.rainsorter.data.msaboundaries.MSABoundariesLoader;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationLoader;
 import strawn.evariant.rainsorter.data.weatherstations.WeatherStationLoader;
 
 /**
@@ -39,6 +41,10 @@ public class WeatherStationTasks {
                 System.out.println(comment);
             }
         }
+    }
+    
+    public static void isPortlandStationCorrect() {
+        MSABoundariesLoader.loadBoundaries();
     }
     
 }

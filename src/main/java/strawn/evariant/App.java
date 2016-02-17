@@ -1,12 +1,7 @@
 package strawn.evariant;
 
-import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.List;
 import strawn.evariant.rainsorter.data.msaboundaries.MSABoundariesLoader;
-import strawn.evariant.rainsorter.datatasks.WeatherStationTasks;
-import strawn.evariant.rainsorter.data.weatherstations.WeatherStationLoader;
-import strawn.evariant.rainsorter.data.weatherstations.WeatherStationRecord;
 
 /*
  * Copyright 2016 davidstrawn.
@@ -25,13 +20,8 @@ import strawn.evariant.rainsorter.data.weatherstations.WeatherStationRecord;
  */
 public class App {
     public static void main( String[] args ) throws IOException {
-        MSABoundariesLoader.loadBoundaries();
-        /*
-        List<WeatherStationRecord> wsrs = WeatherStationLoader.loadRecordsFromDisk();
-        Gson gson = new Gson();
-        for(WeatherStationRecord ws : wsrs) {
-            System.out.println(gson.toJson(ws));
-        }
-        */
+        //MSABoundariesLoader.loadBoundaries();
+        
+        
     }
 }
