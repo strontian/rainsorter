@@ -20,5 +20,9 @@ package strawn.evariant.rainsorter.exceptions;
  * @author davidstrawn
  */
 public class InvalidDataException extends Exception {
+
+    public InvalidDataException(String string) {
+        super(string);
+    }
     
 }

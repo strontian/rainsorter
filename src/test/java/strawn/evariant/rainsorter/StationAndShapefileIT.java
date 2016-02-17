@@ -30,8 +30,8 @@ import strawn.evariant.rainsorter.tools.GeometryTools;
  *
  * @author davidstrawn
  * 
- * This class tests our shapefiles, and our station data.
- * Our shapefile has records that define the region covered by an MSA.
+ * This class tests the shapefiles, and the station data
+ * The shapefile has records that define a region covered by an MSA
  * Using the latitude and longitude from our station data, we can see if a station is in a particular MSA
  */
 public class StationAndShapefileIT {
@@ -58,7 +58,8 @@ public class StationAndShapefileIT {
     public void portlandIsInPortland() {
         for (SimpleFeature feature : features) {
             if(GeometryTools.isPointInRegion(PORTLAND_LONGITUDE, PORTLAND_LATITUDE, feature)) {
-                Assert.assertEquals(PORTLAND_FIPS_CODE, feature.getProperty("CBSAFP").getValue().toString());
+                Assert.assertEquals(PORTLAND_FIPS_CODE, feature.getAttribute("CBSAFP").toString());
+                //Assert.assertEquals(PORTLAND_FIPS_CODE, feature.getProperty("CBSAFP").getValue().toString());
             }
         }
     }

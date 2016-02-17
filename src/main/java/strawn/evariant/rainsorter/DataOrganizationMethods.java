@@ -25,7 +25,9 @@ import strawn.evariant.rainsorter.data.msapop.MSAPopulationRecord;
 import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
- *
+ * A collection of methods for converting from data structure to another. 
+ * These could be generalized using generics and reflection at a later time.
+ * 
  * @author davidstrawn
  */
 public class DataOrganizationMethods {
@@ -36,7 +38,7 @@ public class DataOrganizationMethods {
      * @param stationRecords List of records to convert to map
      * @return Map of WeatherStations keyed by WBAN
      */
-    public static HashMap<String, WeatherStation> mapWBANToStation(List<QCWeatherStationRecord> stationRecords) {
+    public static HashMap<String, WeatherStation> createWBANToStationMap(List<QCWeatherStationRecord> stationRecords) {
         HashMap<String, WeatherStation> stationsByWBAN = new HashMap();
         for(QCWeatherStationRecord station : stationRecords) {
             stationsByWBAN.put(station.wban, new WeatherStation(station));
@@ -49,7 +51,7 @@ public class DataOrganizationMethods {
      * @param populationRecords
      * @return list of MetropolitanStatisticalArea
      */
-    public static List<MetropolitanStatisticalArea> getMSAList(List<MSAPopulationRecord> populationRecords) {
+    public static List<MetropolitanStatisticalArea> createMSAList(List<MSAPopulationRecord> populationRecords) {
         ArrayList<MetropolitanStatisticalArea> toReturn = new ArrayList();
         for(MSAPopulationRecord record : populationRecords) {
             toReturn.add(new MetropolitanStatisticalArea(record.msaName, record.CBSACode, record.population));
@@ -63,13 +65,26 @@ public class DataOrganizationMethods {
      * @param featureList list of features to convert
      * @return map of regions keyed by their CBSA code
      */
-    public static Map<String, SimpleFeature> getCBSAToFeaturesMap(ArrayList<SimpleFeature> featureList) throws IOException {
+    public static Map<String, SimpleFeature> createCBSAToFeaturesMap(ArrayList<SimpleFeature> featureList) throws IOException {
         HashMap<String, SimpleFeature> toReturn = new HashMap();
         for (SimpleFeature feature : featureList) {
             String cbsaId = feature.getProperty("CBSAFP").getValue().toString();
             toReturn.put(cbsaId, feature);
         }
         return toReturn;
+    }
+    
+    /**
+     * Converts a list of MetropolitanStatisticalAreas into a Map with values of the same type, keyed by CBSA code
+     * @param msas list of MSAs to convert
+     * @return a map of MSAs keyed by CBSA code
+     */
+    public static HashMap<String, MetropolitanStatisticalArea> createCBSACodeToMSAMap(List<MetropolitanStatisticalArea> msas) {
+        HashMap<String, MetropolitanStatisticalArea> msasByCBSPCode = new HashMap();
+        for(MetropolitanStatisticalArea msa : msas) {
+            msasByCBSPCode.put(msa.CBSACode, msa);
+        }
+        return msasByCBSPCode;
     }
     
 }

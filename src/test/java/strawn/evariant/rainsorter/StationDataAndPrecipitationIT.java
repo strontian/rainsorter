@@ -45,7 +45,7 @@ public class StationDataAndPrecipitationIT {
     public void setup() throws IOException {
         precipRecords = PrecipitationLoader.loadRecordsFromDisk();
         stations = QCWeatherStationLoader.loadRecordsFromDisk();
-        stationsByWBAN = DataOrganizationMethods.mapWBANToStation(stations);
+        stationsByWBAN = DataOrganizationMethods.createWBANToStationMap(stations);
     }
     
     /**
@@ -55,7 +55,7 @@ public class StationDataAndPrecipitationIT {
     public void testAllPrecipitationCanBeAttributedToHBAN() {
         Set<String> keys = stationsByWBAN.keySet();
         for(PrecipitationRecord record : precipRecords) {
-            if(!keys.contains(record.wbanId)) {
+            if(!keys.contains(record.wbanCode)) {
                 Assert.fail();
             }
         }
@@ -66,7 +66,7 @@ public class StationDataAndPrecipitationIT {
     @Test
     public void testAllStationsHaveCompletePrecipitationData() {
         for(PrecipitationRecord record : precipRecords) {
-            stationsByWBAN.get(record.wbanId).addPrecipitationRecord(record);
+            stationsByWBAN.get(record.wbanCode).addPrecipitationRecord(record);
         }
         for(WeatherStation station : stationsByWBAN.values()) {
             int readingsCount = station.readings.size();
