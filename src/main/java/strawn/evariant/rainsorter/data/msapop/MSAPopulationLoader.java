@@ -35,7 +35,7 @@ public class MSAPopulationLoader {
         Iterable<CSVRecord> records = getCSVRecords();
         for (CSVRecord record : records) {
             String identifier = record.get("Geography");
-            identifier.replace(" Metro Area","");
+            identifier = identifier.replace(" Metro Area","");
             String[] indentifierSplit = identifier.split(",");
             String msaName = indentifierSplit[0].trim();
             String msaState = indentifierSplit[1].trim();
