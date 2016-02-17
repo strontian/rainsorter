@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-rainsorter ranks each Metropolitan Statistical Area(MSA) in the United States by a metric called "Population Wetness" calculated for the month of May, 2015. Population Wetness is defined as the amount of rain received by an MSA during the daytime multiplied by the number of people living in that area.
+rainsorter ranks each Metropolitan Statistical Area(MSA) in the United States by a metric called "Population Wetness" calculated for the month of May, 2015. Population Wetness is defined as the total amount of daytime rain an MSA receives in the month multiplied by the number of people living in the MSA.
 
 ## Data Sets
 
@@ -10,11 +10,11 @@ Data from three government published data sets is used by rainsorter to calculat
 
 **Quality Controlled Local Climatological Data(QCLCD)**
 
-Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
+  Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
 
-Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
+  Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
 
-Date: May 2015
+  Date: May 2015
 
 Description: QCLCD contains two data sets of interest:
   1. Hourly precipitation data for each weather station
