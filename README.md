@@ -1,80 +1,4 @@
 # rainsorter
-<style>
-
-.chart rect {
-  fill: steelblue;
-}
-
-.chart text {
-  fill: black;
-  font: 10px sans-serif;
-  
-}
-
-</style>
-<svg class="chart"></svg>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script>
-
-
-var leftMargin = 235;
-var topMargin = 45;
-var width = 840,
-    barHeight = 30;
-
-var x = d3.scale.linear()
-    .range([0, width]);
-
-var chart = d3.select(".chart")
-    .attr("width", width);
-
-chart.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 20 )
-        .attr("text-anchor", "middle")  
-        .style("font-size", "20px") 
-        .style("text-decoration", "underline")  
-        .text("Top 20 Wettest MSAs");
-
-d3.csv("top20.csv", type, function(error, data) {
-
-  x.domain([0, d3.max(data, function(d) { return d.Wetness; })]);
-
-  chart.attr("height", barHeight * data.length + topMargin);
-
-  var groups = chart.selectAll("g")
-      .data(data)
-    .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + ((i * barHeight) + topMargin) + ")"; });
-
-  groups.append("rect")
-      .attr("x", leftMargin)
-      .attr("width", function(d) { return x(d.Wetness)/2})
-      .attr("height", barHeight - 1);
-
-  groups.append("text")
-      .attr("x", function(d) { return leftMargin + x(d.Wetness)/2 - 3; })
-      .attr("y", barHeight / 2)
-      .attr("dy", ".35em")
-      .attr("text-anchor", "end")
-      .text(function(d) { return d.Wetness; });
-
-  groups.append("text")
-      .attr("x", leftMargin/2)
-      .attr("y", barHeight/2)
-      .attr("dy", ".35em")
-      .style("font-size", "12px") 
-      .attr("text-anchor", "middle")
-      .attr('class', 'msa')
-      .text(function(d) { return d.MSA; });
-});
-
-function type(d) {
-  d.Wetness = parseInt(d.Wetness);
-  return d;
-}
-
-</script>
 
 ## Synopsis
 
@@ -84,31 +8,36 @@ rainsorter ranks each Metropolitan Statistical Area(MSA) in the United States by
 
 Data from three government published data sets is used by rainsorter to calculate population wetness:
 
-Quality Controlled Local Climatological Data(QCLCD)
+**Quality Controlled Local Climatological Data(QCLCD)**
 
-Description: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
+Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
+
 Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
+
 Date: May 2015
 
-QCLCD contains two data sets of interest:
+Description: QCLCD contains two data sets of interest:
   1. Hourly precipitation data for each weather station
   2. List of weather stations
 
-Census Bureau Population Estimate
+**Census Bureau Population Estimate**
 
-Description: http://www.census.gov/popest/about/geo/terms.html 
+Website: http://www.census.gov/popest/about/geo/terms.html 
+
 Download: http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2015_PEPANNRES
+
 Date: July 2014
 
-US Census population estimates broken down by MSA.
+Description: US Census population estimates broken down by MSA.
 
-TIGER/Line® Shapefiles 
+**TIGER/Line® Shapefiles** 
 
-Description: https://www.census.gov/geo/maps-data/data/tiger-line.html
+Website: https://www.census.gov/geo/maps-data/data/tiger-line.html
+
 Download: ftp://ftp2.census.gov/geo/tiger
-Date: August 2015
 
-GIS data describing the geographical area covered by each MSA.
+Date: August 2015
+Description: GIS data describing the geographical area covered by each MSA.
 
 ## Definitions && Methodology
 
@@ -151,11 +80,13 @@ Running the program creates a file output/MSAs_By_Wetness.csv
 
 ## License
 
-rainmaker is released under LGPL 2.1
+rainsorter is released under LGPL 2.1
 
 ## Dependencies
 
 commons-csv (Apache 2.0) https://commons.apache.org/proper/commons-csv/
+
 Gson (Apache 2.0)  https://github.com/google/gson
+
 GeoTools (LGPL 2.1) http://www.geotools.org
 
