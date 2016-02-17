@@ -3,6 +3,7 @@ package strawn.evariant;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.List;
+import strawn.evariant.rainsorter.data.msaboundaries.MSABoundariesLoader;
 import strawn.evariant.rainsorter.datatasks.WeatherStationTasks;
 import strawn.evariant.rainsorter.data.weatherstations.WeatherStationLoader;
 import strawn.evariant.rainsorter.data.weatherstations.WeatherStationRecord;
@@ -24,7 +25,7 @@ import strawn.evariant.rainsorter.data.weatherstations.WeatherStationRecord;
  */
 public class App {
     public static void main( String[] args ) throws IOException {
-        WeatherStationTasks.printComments();
+        MSABoundariesLoader.loadBoundaries();
         /*
         List<WeatherStationRecord> wsrs = WeatherStationLoader.loadRecordsFromDisk();
         Gson gson = new Gson();

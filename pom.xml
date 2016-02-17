@@ -36,5 +36,14 @@
       <artifactId>gt-shapefile</artifactId>
       <version>14.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-swing</artifactId>
+      <version>14.2</version>
+    </dependency>
   </dependencies>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 </project>

@@ -21,4 +21,6 @@ package strawn.evariant.rainsorter.data.msaboundaries;
  */
 public class MSABoundariesFileInfo {
     
+    public static final String location = "data/MSA_BOUNDARIES/Masters/tl_2015_us_cbsa.shp";
+    
 }
