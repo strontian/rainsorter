@@ -125,7 +125,7 @@ public class RainsorterEngine {
      * 
      * @throws InvalidDataException 
      */
-    private void addStationsToRegions() throws InvalidDataException {
+    private void addStationsToRegions() {
         for(WeatherStation station : wbanToStationMap.values()) {
             for(SimpleFeature feature : regions) {
                 String featureCBSACode = feature.getAttribute("CBSAFP").toString();
@@ -133,8 +133,6 @@ public class RainsorterEngine {
                     MetropolitanStatisticalArea msa = msaMap.get(featureCBSACode);
                     if(msa != null) {
                         msa.addStation(station);
-                    }else {
-                        throw new InvalidDataException("addStationsToRegions - No MSA found for CBSA Code:" + featureCBSACode);
                     }
                 }
             }
@@ -150,7 +148,7 @@ public class RainsorterEngine {
         for(PrecipitationRecord record : precipitation) {
             WeatherStation station = wbanToStationMap.get(record.wbanCode);
             if(station != null) {
-                
+                station.addPrecipitationRecord(record);
             }else {
                 throw new InvalidDataException("No station found for WBAN Code:" + record.wbanCode);
             }
