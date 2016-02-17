@@ -23,6 +23,8 @@ import strawn.evariant.rainsorter.data.weatherstations.WeatherStationLoader;
  *
  * @author davidstrawn
  * 
+ * This class is only for inspection of Weather Station Data from the Master List 
+ * 
  * Weather Station data includes a field for comments, which can have any sort of information in it.
  * Comments are highly asymmetrical, but at least one refers to a mislabeled WBAN
  * 

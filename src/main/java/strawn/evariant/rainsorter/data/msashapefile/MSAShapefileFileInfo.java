@@ -13,28 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import strawn.evariant.rainsorter.data.msacounty.MSACountyRecord;
+package strawn.evariant.rainsorter.data.msashapefile;
 
 /**
  *
  * @author davidstrawn
  */
-public class RainsorterEngine {
+public class MSAShapefileFileInfo {
     
-    private HashMap<Integer, WeatherStation> wbanToStationMap;
-    private List<MetropolitanStatisticalArea> metroAreas;
-    
-    public RainsorterEngine(Collection<MSACountyRecord> areas) {
-        wbanToStationMap = new HashMap();
-        //create MSA from Population records
-        //add geotools regions to MSAs
-        //map stations to MSAs
-        //add weather readings to stations
-    }
+    public static final String LOCATION = "data/MSA_BOUNDARIES/Masters/tl_2015_us_cbsa.shp";
     
 }

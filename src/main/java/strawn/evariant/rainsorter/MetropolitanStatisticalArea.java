@@ -30,7 +30,7 @@ public class MetropolitanStatisticalArea {
         counties = new HashSet();
     }
     
-    public void addCounty() {
+    public void addStation() {
         
     }
     

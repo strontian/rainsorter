@@ -1,7 +1,7 @@
 package strawn.evariant;
 
 import java.io.IOException;
-import strawn.evariant.rainsorter.data.msaboundaries.MSABoundariesLoader;
+import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
 
 /*
  * Copyright 2016 davidstrawn.

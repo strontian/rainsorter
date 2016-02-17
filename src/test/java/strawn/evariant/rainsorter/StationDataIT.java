@@ -15,26 +15,18 @@
  */
 package strawn.evariant.rainsorter;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import strawn.evariant.rainsorter.data.msacounty.MSACountyRecord;
+import java.io.IOException;
+import org.junit.Before;
 
 /**
  *
  * @author davidstrawn
  */
-public class RainsorterEngine {
+public class StationDataIT {
     
-    private HashMap<Integer, WeatherStation> wbanToStationMap;
-    private List<MetropolitanStatisticalArea> metroAreas;
-    
-    public RainsorterEngine(Collection<MSACountyRecord> areas) {
-        wbanToStationMap = new HashMap();
-        //create MSA from Population records
-        //add geotools regions to MSAs
-        //map stations to MSAs
-        //add weather readings to stations
+    @Before
+    public void setup() throws IOException {
+        
     }
     
 }

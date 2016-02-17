@@ -13,18 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.msaboundaries;
+package strawn.evariant.rainsorter.data.msashapefile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import org.geotools.data.DataStore;
 import org.geotools.data.DataStoreFinder;
 import org.geotools.data.FeatureSource;
 import org.geotools.feature.FeatureCollection;
 import org.geotools.feature.FeatureIterator;
-import org.opengis.feature.Property;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.filter.Filter;
@@ -33,35 +35,33 @@ import org.opengis.filter.Filter;
  *
  * @author davidstrawn
  */
-public class MSABoundariesLoader {
+public class MSAShapefileLoader {
     
     public static Map<Integer, SimpleFeature> getCBSAToFeaturesMap() throws IOException {
         HashMap<Integer, SimpleFeature> toReturn = new HashMap();
-        FeatureIterator<SimpleFeature> features = loadFeatures();
-        while (features.hasNext()) {
-            SimpleFeature feature = features.next();
+        List<SimpleFeature> features = loadFeatures();
+        for (SimpleFeature feature : features) {
             String cbsaId = feature.getProperty("CBSAFP").getValue().toString();
             toReturn.put(Integer.parseInt(cbsaId), feature);
         }
         return toReturn;
     }
     
-    public static FeatureIterator<SimpleFeature> loadFeatures() throws IOException {
-        
-        File file = new File(MSABoundariesFileInfo.LOCATION);
+    public static ArrayList<SimpleFeature> loadFeatures() throws IOException {
+        ArrayList<SimpleFeature> toReturn = new ArrayList();
+        File file = new File(MSAShapefileFileInfo.LOCATION);
         Map<String, Object> map = new HashMap();
         map.put("url", file.toURI().toURL());
-        
         DataStore dataStore = DataStoreFinder.getDataStore(map);
         String typeName = dataStore.getTypeNames()[0];
-        
         FeatureSource<SimpleFeatureType, SimpleFeature> source = dataStore.getFeatureSource(typeName);
         Filter filter = Filter.INCLUDE; // ECQL.toFilter("BBOX(THE_GEOM, 10,20,30,40)")
-        
         FeatureCollection<SimpleFeatureType, SimpleFeature> collection = source.getFeatures(filter);
-        
-        return collection.features();
-        
+        FeatureIterator<SimpleFeature> features = collection.features();
+        while (features.hasNext()) {
+            toReturn.add(features.next());
+        }
+        return toReturn;
     }
     
 }

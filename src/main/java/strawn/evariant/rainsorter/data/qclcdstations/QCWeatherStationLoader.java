@@ -30,7 +30,7 @@ import org.apache.commons.csv.CSVRecord;
  */
 public class QCWeatherStationLoader {
     
-    public static List<QCWeatherStationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException, Exception {
+    public static List<QCWeatherStationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
         ArrayList<QCWeatherStationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
         for (CSVRecord record : records) {

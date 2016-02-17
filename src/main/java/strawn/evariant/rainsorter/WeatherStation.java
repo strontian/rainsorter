@@ -13,14 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package strawn.evariant.rainsorter.data.msaboundaries;
+package strawn.evariant.rainsorter;
+
+import java.util.ArrayList;
+import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
 
 /**
  *
  * @author davidstrawn
  */
-public class MSABoundariesFileInfo {
+public class WeatherStation {
     
-    public static final String LOCATION = "data/MSA_BOUNDARIES/Masters/tl_2015_us_cbsa.shp";
+    public ArrayList<PrecipitationRecord> readings;
+    public int wbanID;
+    public double latitude;
+    public double longitude;
+    
+    public WeatherStation() {
+        
+    }
+    
+    public void addPrecipitationRecord() {
+        
+    }
     
 }

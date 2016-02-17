@@ -19,30 +19,45 @@ import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
 import java.io.IOException;
+import java.util.List;
 import org.geotools.feature.FeatureIterator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 import org.opengis.feature.simple.SimpleFeature;
-import strawn.evariant.rainsorter.data.msaboundaries.MSABoundariesLoader;
+import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationLoader;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 import strawn.evariant.rainsorter.tools.GeometryTools;
 
 /**
  *
  * @author davidstrawn
+ * 
+ * This class tests our shapefiles, and our station data.
+ * Our shapefile has records that define the region covered by an MSA.
+ * Using the latitude and longitude from our station data, we can see if a station is in a particular MSA
  */
-public class MapStationToMsaIT {
+public class StationAndShapefileIT {
     
     private static final double PORTLAND_LATITUDE = 45.551;
     private static final double PORTLAND_LONGITUDE = -122.409;
-    private FeatureIterator<SimpleFeature> features;
     private static final String PORTLAND_FIPS_CODE = "38900";
+    
+    private FeatureIterator<SimpleFeature> features;
+    private List<QCWeatherStationRecord> stations;
     
     @Before
     public void setup() throws IOException {
-        features = MSABoundariesLoader.loadFeatures();
+        features = MSAShapefileLoader.loadFeatures();
+        stations = QCWeatherStationLoader.loadRecordsFromDisk();
     }
-    
+
+    /**
+     * The static variables are latitude and longitude of a station and portland
+     * The test looks for a region that the coordinates are located in, 
+     * and makes sure that its FIPS code is the same as that of Portland-Vancouver-Hillsboro, "38900"
+     */
     @Test
     public void portlandIsInPortland() {
         while (features.hasNext()) {
@@ -53,4 +68,9 @@ public class MapStationToMsaIT {
         }
     }
     
+    @Test
+    public void allStationsBelongToOnlyOneRegion() {
+        
+    }
+            
 }
