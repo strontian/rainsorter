@@ -8,26 +8,24 @@ rainsorter ranks each Metropolitan Statistical Area(MSA) in the United States by
 
 Data from three government published data sets is used by rainsorter to calculate population wetness:
 
-**Quality Controlled Local Climatological Data(QCLCD)**
+**1. Quality Controlled Local Climatological Data(QCLCD)**
 
-  Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
-
-  Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
-
-  Date: May 2015
+Website: http://www.ncdc.noaa.gov/qclcd/QCLCD?prior=N
+Download: http://www.ncdc.noaa.gov/orders/qclcd/QCLCD201505.zip
+Date: May 2015
 
 Description: QCLCD contains two data sets of interest:
   1. Hourly precipitation data for each weather station
   2. List of weather stations
 
-**Census Bureau Population Estimate**
+**2. Census Bureau Population Estimate**
 
 Website: http://www.census.gov/popest/about/geo/terms.html 
 Download: http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2015_PEPANNRES
 Date: July 2014
 Description: US Census population estimates broken down by MSA.
 
-**TIGER/Line® Shapefiles** 
+**3. TIGER/Line® Shapefiles** 
 
 Website: https://www.census.gov/geo/maps-data/data/tiger-line.html
 Download: ftp://ftp2.census.gov/geo/tiger
