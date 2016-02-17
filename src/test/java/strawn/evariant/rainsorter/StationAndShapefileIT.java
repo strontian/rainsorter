@@ -48,7 +48,7 @@ public class StationAndShapefileIT {
         features = MSAShapefileLoader.loadFeatures();
         stations = QCWeatherStationLoader.loadRecordsFromDisk();
     }
-
+    
     /**
      * The static variables are latitude and longitude of a station and portland
      * The test looks for a region that the coordinates are located in, 

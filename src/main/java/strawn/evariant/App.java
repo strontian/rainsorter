@@ -1,7 +1,9 @@
 package strawn.evariant;
 
 import java.io.IOException;
-import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
+import java.util.List;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationLoader;
+import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /*
  * Copyright 2016 davidstrawn.
@@ -20,8 +22,7 @@ import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
  */
 public class App {
     public static void main( String[] args ) throws IOException {
-        //MSABoundariesLoader.loadBoundaries();
-        
+        List<QCWeatherStationRecord> records = QCWeatherStationLoader.loadRecordsFromDisk();
         
     }
 }

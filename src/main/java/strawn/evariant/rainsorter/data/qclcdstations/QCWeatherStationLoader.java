@@ -20,6 +20,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -34,9 +35,9 @@ public class QCWeatherStationLoader {
         ArrayList<QCWeatherStationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
         for (CSVRecord record : records) {
-            int wban = Integer.parseInt(record.get("WBAN"));
             double latitude = Double.parseDouble(record.get("Latitude"));
             double longitude = Double.parseDouble(record.get("Longitude"));
+            int wban = Integer.parseInt(record.get("WBAN"));
             toReturn.add(new QCWeatherStationRecord(wban, latitude, longitude));
         }
         return toReturn;
@@ -44,6 +45,6 @@ public class QCWeatherStationLoader {
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
         Reader in = new FileReader(QCWeatherStationFileInfo.LOCATION);
-        return CSVFormat.DEFAULT.withHeader().parse(in);
+        return CSVFormat.newFormat(QCWeatherStationFileInfo.DELIMITER).withHeader().parse(in);
     }
 }
