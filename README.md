@@ -88,7 +88,7 @@ This project uses Maven to build. To build the source, from the project director
 mvn package
 ```
 
-The jar can then be in target/rainsorter-${version}-jar-with-dependencies.jar
+The jar can then be found in target/rainsorter-${version}-jar-with-dependencies.jar
 
 ## License
 
