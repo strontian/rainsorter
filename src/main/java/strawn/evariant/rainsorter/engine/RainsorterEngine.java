@@ -37,7 +37,7 @@ import strawn.evariant.rainsorter.tools.GeometryTools;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  * 
  * This class is the main workhorse of rainsorter. 
  * All needed data sets meet here, and are connected in a meaningful way

@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class IOTools {
     

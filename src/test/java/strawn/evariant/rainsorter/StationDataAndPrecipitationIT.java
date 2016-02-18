@@ -34,7 +34,7 @@ import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  * 
  * This class is for testing Station and Precipitation data
  * 

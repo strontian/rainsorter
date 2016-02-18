@@ -28,11 +28,22 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- *
- * @author davidstrawn
+ * Helper class for loading QCLCD Weather Station data from disk
+ * 
+ * @author David Strawn
  */
 public class QCWeatherStationLoader {
     
+    public static final String QCLCD_STATION_DISK_LOCATION = "data/QCLCD201505/Masters/201505station.txt";
+    public static final char QCLCD_STATION_DELIMITER = '|';
+    
+    /**
+     * Loads and returns a list of all weather stations in the QCLCD data set.
+     * 
+     * @return List of QCWeatherStationRecord representing the stations
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public static List<QCWeatherStationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
         ArrayList<QCWeatherStationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
@@ -47,8 +58,8 @@ public class QCWeatherStationLoader {
         return toReturn;
     }
     
-    public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(QCWeatherStationFileInfo.LOCATION);
-        return CSVFormat.newFormat(QCWeatherStationFileInfo.DELIMITER).withHeader().parse(in);
+    private static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
+        Reader in = new FileReader(QCLCD_STATION_DISK_LOCATION);
+        return CSVFormat.newFormat(QCLCD_STATION_DELIMITER).withHeader().parse(in);
     }
 }

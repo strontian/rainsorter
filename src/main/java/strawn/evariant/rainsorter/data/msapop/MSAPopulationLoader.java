@@ -28,11 +28,22 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- *
- * @author davidstrawn
+ * Helper class for loading MSA Census data from disk
+ * 
+ * @author David Strawn
  */
 public class MSAPopulationLoader {
     
+    public static final String MSA_POPULATION_DISK_LOCATION = "data/MSA_POPULATION_2014/MSA_Population.csv";
+    public static final char DELIMITER = ',';
+    
+    /**
+     * Loads and returns a list of all MSAs including their population in 2014
+     * 
+     * @return The list of records.
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public static List<MSAPopulationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
         ArrayList<MSAPopulationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
@@ -49,7 +60,7 @@ public class MSAPopulationLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(MSAPopulationFileInfo.LOCATION);
+        Reader in = new FileReader(MSA_POPULATION_DISK_LOCATION);
         return CSVFormat.DEFAULT.withHeader().parse(in);
     }
     

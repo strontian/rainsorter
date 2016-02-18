@@ -33,7 +33,7 @@ import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class MetropolitanStatisticalAreaIT {
     

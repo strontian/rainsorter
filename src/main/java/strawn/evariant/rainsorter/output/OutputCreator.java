@@ -27,7 +27,7 @@ import strawn.evariant.rainsorter.tools.IOTools;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class OutputCreator {
     

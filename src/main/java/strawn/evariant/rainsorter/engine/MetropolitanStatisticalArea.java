@@ -25,13 +25,13 @@ import org.opengis.feature.simple.SimpleFeature;
 import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
 
 /**
- * This class represents a MetropolitanStatisticalArea for the purposes of calculating population wetness
+ * This class represents a MetropolitanStatisticalArea for the purposes of calculating population wetness.
  * 
  * It contains:
  *   a list of Weather Stations within the MSA
  *   a SimpleFeature representing the geographical area covered by the MSA
  * 
- * @author davidstrawn
+ * @author David Strawn
  */
 public class MetropolitanStatisticalArea {
     

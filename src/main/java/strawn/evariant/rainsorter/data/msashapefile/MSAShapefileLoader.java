@@ -33,14 +33,23 @@ import org.opengis.feature.simple.SimpleFeatureType;
 import org.opengis.filter.Filter;
 
 /**
- *
- * @author davidstrawn
+ * Helper class for loading TIGER/Line Shapefile data from disk
+ * 
+ * @author David Strawn
  */
 public class MSAShapefileLoader {
     
+    public static final String MSA_BOUNDARIES_LOCATION = "data/MSA_BOUNDARIES/Masters/tl_2015_us_cbsa.shp";
+    
+    /**
+     * Loads and returns TIGER/Line shapefile data describing the geographical area of all MSAs
+     * 
+     * @return The list of SimpleFeatures
+     * @throws IOException 
+     */
     public static ArrayList<SimpleFeature> loadFeatures() throws IOException {
         ArrayList<SimpleFeature> toReturn = new ArrayList();
-        File file = new File(MSAShapefileFileInfo.LOCATION);
+        File file = new File(MSA_BOUNDARIES_LOCATION);
         Map<String, Object> map = new HashMap();
         map.put("url", file.toURI().toURL());
         DataStore dataStore = DataStoreFinder.getDataStore(map);

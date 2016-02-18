@@ -20,7 +20,7 @@ package strawn.evariant.rainsorter.exceptions;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class InvalidDataException extends Exception {
 

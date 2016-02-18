@@ -20,7 +20,7 @@ package strawn.evariant.rainsorter.output;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class MSAWetness {
     

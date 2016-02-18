@@ -19,8 +19,9 @@
 package strawn.evariant.rainsorter.data.msapop;
 
 /**
- *
- * @author davidstrawn
+ * This record represents one row from MSA_Population data. Each record represents an MSA.
+ * 
+ * @author David Strawn
  */
 public class MSAPopulationRecord {
     

@@ -33,7 +33,7 @@ import strawn.evariant.rainsorter.engine.WeatherStation;
  * A collection of methods for converting from data structure to another. 
  * These could be generalized using generics and reflection at a later time.
  * 
- * @author davidstrawn
+ * @author David Strawn
  */
 public class DataOrganizationMethods {
     

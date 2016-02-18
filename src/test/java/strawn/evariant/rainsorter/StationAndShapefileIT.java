@@ -31,7 +31,7 @@ import strawn.evariant.rainsorter.tools.GeometryTools;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  * 
  * This class tests the shapefiles, and the station data
  * The shapefile has records that define a region covered by an MSA

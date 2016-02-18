@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 davidstrawn.
+ * Copyright (C) 2016 David Strawn.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,7 +20,7 @@ package strawn.evariant.rainsorter.output;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class MSAWithQuintileAndCoordinates {
     

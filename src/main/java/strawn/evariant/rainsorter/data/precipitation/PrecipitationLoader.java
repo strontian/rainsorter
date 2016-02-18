@@ -28,11 +28,22 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- *
- * @author davidstrawn
+ * Helper class for loading QCLCD Precipitation data form disk.
+ * 
+ * @author David Strawn
  */
 public class PrecipitationLoader {
     
+    public static final String QCLCD_DISK_LOCATION = "data/QCLCD201505/201505_daytime_precip.csv";
+    public static final char QCLCD_DELIMITER = ',';
+    
+    /**
+     * Loads and returns all precipitation data for May 2015
+     * 
+     * @return The list of precipitation records
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public static List<PrecipitationRecord> loadRecordsFromDisk() throws FileNotFoundException, IOException {
         ArrayList<PrecipitationRecord> toReturn = new ArrayList();
         Iterable<CSVRecord> records = getCSVRecords();
@@ -58,7 +69,7 @@ public class PrecipitationLoader {
     }
     
     public static Iterable<CSVRecord> getCSVRecords() throws FileNotFoundException, IOException {
-        Reader in = new FileReader(PrecipitationFileInfo.LOCATION);
+        Reader in = new FileReader(QCLCD_DISK_LOCATION);
         return CSVFormat.DEFAULT.withHeader().parse(in);
     }
 }

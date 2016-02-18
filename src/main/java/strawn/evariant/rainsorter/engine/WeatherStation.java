@@ -24,7 +24,7 @@ import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class WeatherStation {
     

@@ -27,7 +27,7 @@ import org.opengis.feature.simple.SimpleFeature;
 
 /**
  *
- * @author davidstrawn
+ * @author David Strawn
  */
 public class GeometryTools {
     
