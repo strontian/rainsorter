@@ -76,7 +76,7 @@ Once the total precipitation is calculated, it is multiplied by the population t
 
 ## Output
 
-Running the program creates: 
+Running the program creates:  
   [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv) - a list of MSAs and their Population Wetness values, in descending order.  
   [output/MSAs_By_Quintiles.csv](output/MSAs_By_Quintiles.csv) - json file of MSAs with wetness quintile and coordinates
 ## License
