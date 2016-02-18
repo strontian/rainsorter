@@ -77,8 +77,8 @@ Once the total precipitation is calculated, it is multiplied by the population t
 ## Output
 
 Running the program creates: 
-  [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv) - a list of MSA's and their Population Wetness values, in descending order.
-  [output/MSAs_By_Quintiles.csv](output/MSAs_By_Quintiles.csv) - json file of MSA's with wetness quintile and coordinates
+  [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv) - a list of MSAs and their Population Wetness values, in descending order.  
+  [output/MSAs_By_Quintiles.csv](output/MSAs_By_Quintiles.csv) - json file of MSAs with wetness quintile and coordinates
 ## License
 
 rainsorter is released under LGPL 2.1
