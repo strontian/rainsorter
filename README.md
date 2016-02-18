@@ -79,6 +79,17 @@ Once the total precipitation is calculated, it is multiplied by the population t
 Running the program creates:  
   [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv) - a list of MSAs and their Population Wetness values, in descending order.  
   [output/MSAs_By_Quintiles.csv](output/MSAs_By_Quintiles.csv) - json file of MSAs with wetness quintile and coordinates
+
+## Build
+
+This project uses Maven to build. To build the source, from the project directory(where the pom.xml file is), run:
+ 
+```console
+mvn package
+```
+
+The jar can then be in target/rainsorter-${version}-jar-with-dependencies.jar
+
 ## License
 
 rainsorter is released under LGPL 2.1
