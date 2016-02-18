@@ -23,7 +23,8 @@ import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
 import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
- *
+ * Represents a weather station. This class just aggregates precipitation data. Calculations are done in MetropolitanStatisticalArea
+ * 
  * @author David Strawn
  */
 public class WeatherStation {
@@ -40,12 +41,12 @@ public class WeatherStation {
         readings = new ArrayList();
     }
     
+    /**
+     * Add a precipitation record to the station.
+     * @param record 
+     */
     public void addPrecipitationRecord(PrecipitationRecord record) {
         readings.add(record);
     }
 
-    public Object get(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

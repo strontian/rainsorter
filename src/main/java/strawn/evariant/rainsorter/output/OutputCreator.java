@@ -26,7 +26,8 @@ import strawn.evariant.rainsorter.engine.WeatherStation;
 import strawn.evariant.rainsorter.tools.IOTools;
 
 /**
- *
+ * Helper class for generating the output created by the program.
+ * 
  * @author David Strawn
  */
 public class OutputCreator {
@@ -34,14 +35,27 @@ public class OutputCreator {
     public static final String WETNESS_OUTPUT_LOCATION = "output/MSAs_By_Wetness.csv";
     public static final String QUINTILES_OUTPUT_LOCATION = "output/MSA_By_Quintiles.json";
     
+    /**
+     * Writes a CSV file of MSAs and their population wetness, in descending order.
+     * 
+     * @param msas a List of all MSAs, which should already be populated with data.
+     * @throws IOException 
+     */
     public static void writeWetnessCsv(List<MetropolitanStatisticalArea> msas) throws IOException {
         List<String> toWrite = new ArrayList();
         for(MetropolitanStatisticalArea msa : msas) {
-            toWrite.add(new MSAWetness(msa.msaName, msa.getWetnessRating()).getOutputString());
+            toWrite.add(new MSAWetness(msa.msaName, msa.getPopulationWetness()).getOutputString());
         }
         IOTools.writeList(WETNESS_OUTPUT_LOCATION, toWrite);
     }
     
+    /**
+     * Writes a JSON file that sorts MSAs into quintiles based upon their Population Wetness. Also includes 
+     * latitude and longitude data so they can be plotted on a map
+     * 
+     * @param msas a List of all MSAs, which should already be populated with data.
+     * @throws IOException 
+     */
     public static void writeMSAQuintiles(List<MetropolitanStatisticalArea> msas) throws IOException {
         List<Object> toWrite = new ArrayList();
         for(int i = 0; i < msas.size(); i++) {
@@ -55,7 +69,7 @@ public class OutputCreator {
         IOTools.writeAsJSON(QUINTILES_OUTPUT_LOCATION, toWrite);
     }
     
-    public static int getQuintile(int index, int total) {
+    private static int getQuintile(int index, int total) {
         double boundary = (double)total/5d;
         return 1 + (int)((double)index/boundary);
     }

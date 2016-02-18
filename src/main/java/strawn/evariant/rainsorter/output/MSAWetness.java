@@ -19,7 +19,8 @@
 package strawn.evariant.rainsorter.output;
 
 /**
- *
+ * This class stores a record of an MSA and its population wetness, and generates a CSV output string for the data.
+ * 
  * @author David Strawn
  */
 public class MSAWetness {

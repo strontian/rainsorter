@@ -54,15 +54,31 @@ public class MetropolitanStatisticalArea {
         stations = new ArrayList();
     }
     
+    /**
+     * Give the MSA a reference to the SimpleFeature defining its geography.
+     * 
+     * @param feature 
+     */
     public void addRegionFeature(SimpleFeature feature) {
         this.geographicalRegionFeature = feature;
     }
-    
+
+    /**
+     * Add a weather station to this MSA. MSAs may contain more than one station.
+     * 
+     * @param station 
+     */
     public void addStation(WeatherStation station) {
         stations.add(station);
     }
     
+    /**
+     * Computes the population wetness for this MSA. This should only be called once.
+     */
     public void calculatePopulationWetness() {
+        if(isWetnessComputed) {
+            return;
+        }
         double totalInchHours = 0d;
         wetnessRating = 0d;
         traceCount = 0;
@@ -90,14 +106,23 @@ public class MetropolitanStatisticalArea {
         wetnessRating = totalInchHours * (double)population;
         isWetnessComputed = true;
     }
-    
-    public int getWetnessRating() {
+    /**
+     * Returns the population wetness for this MSA. This function computes the wetness if it hasn't already been done.
+     * @return 
+     */
+    public int getPopulationWetness() {
         if(!isWetnessComputed) {
             calculatePopulationWetness();
         }
         return (int)wetnessRating;
     }
     
+    /**
+     * Some stations in the data set do not have any QCLCD precipitation readings. This is likely because a station 
+     * has been taken down or is not operating during the period.
+     * 
+     * TODO: Move this into a data cleaning phase
+     */
     public void dropEmptyStations() {
         Iterator<WeatherStation> iter = stations.iterator();
         while(iter.hasNext()) {
@@ -106,10 +131,6 @@ public class MetropolitanStatisticalArea {
                 iter.remove();
             }
         }
-    }
-    
-    public boolean isWetnessComputed() {
-        return isWetnessComputed;
     }
     
 }

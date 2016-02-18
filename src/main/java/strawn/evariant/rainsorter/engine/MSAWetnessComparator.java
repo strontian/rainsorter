@@ -37,7 +37,7 @@ public class MSAWetnessComparator implements Comparator<MetropolitanStatisticalA
      */
     @Override
     public int compare(MetropolitanStatisticalArea o1, MetropolitanStatisticalArea o2) {
-        double wetnessDifference = o2.getWetnessRating() - o1.getWetnessRating();
+        double wetnessDifference = o2.getPopulationWetness() - o1.getPopulationWetness();
         if(wetnessDifference > 0) {
             return 1;
         }else if(wetnessDifference < 0) {

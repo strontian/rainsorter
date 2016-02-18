@@ -25,11 +25,18 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *
+ * Static method class for helping write to disk.
+ * 
  * @author David Strawn
  */
 public class IOTools {
     
+    /**
+     * Writes a list of strings as a text file
+     * @param location output location
+     * @param toWrite list of strings to write
+     * @throws IOException 
+     */
     public static void writeList(String location, List<String> toWrite) throws IOException {
         //makeParentDirs(location);
         BufferedWriter bw = new BufferedWriter(new FileWriter(location));
@@ -44,6 +51,14 @@ public class IOTools {
         bw.close();
     }
     
+    /**
+     * Writes a list of objects as a json file. Gson can automatically convert any object to json.
+     * Format is: [{object 1}, {object 2}, ..., {object n}]
+     * 
+     * @param location the location to write to
+     * @param toWrite list of objects to convert to json
+     * @throws IOException 
+     */
     public static void writeAsJSON(String location, List<? extends Object> toWrite) throws IOException {
         //makeParentDirs(location);
         BufferedWriter bw = new BufferedWriter(new FileWriter(location));
