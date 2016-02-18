@@ -30,10 +30,8 @@ public class App {
     public static void main( String[] args ) throws IOException, InvalidDataException {
         RainsorterEngine engine = RainsorterEngine.createEngine();
         List<MetropolitanStatisticalArea> msas = engine.getSortedMSAs();
-        
         OutputCreator.writeWetnessCsv(msas);
         OutputCreator.writeMSAQuintiles(msas);
-        
     }
     
 }
