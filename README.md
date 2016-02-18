@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-rainsorter ranks each Metropolitan Statistical Area(MSA) in the United States by a metric called "Population Wetness" calculated for the month of May, 2015. Population Wetness is defined as the total amount of daytime rain an MSA receives in the month multiplied by the number of people living in the MSA.
+rainsorter calculates a metric called 'Population Wetness' for Metropolitan Statistical Areas(MSA) in the United States for the month of May, 2015. Population Wetness is defined as the total amount of daytime rain an MSA receives in the month multiplied by the number of people living in the MSA.
 
 ## Data Sets
 
