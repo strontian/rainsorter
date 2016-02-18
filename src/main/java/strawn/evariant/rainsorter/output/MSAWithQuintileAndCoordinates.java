@@ -20,8 +20,6 @@ package strawn.evariant.rainsorter.output;
 
 /**
  * This class aggregates the data we need for the wetness quintile map. It is output as JSON, so no methods are needed.
- * 
- * @author David Strawn
  */
 public class MSAWithQuintileAndCoordinates {
     

@@ -29,8 +29,6 @@ import org.apache.commons.csv.CSVRecord;
 
 /**
  * Helper class for loading QCLCD Weather Station data from disk
- * 
- * @author David Strawn
  */
 public class QCWeatherStationLoader {
     

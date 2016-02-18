@@ -17,7 +17,7 @@ package strawn.evariant.rainsorter.unused;
 
 /**
  *
- * @author David Strawn
+ * 
  */
 public class MSACountyFileInfo {
     

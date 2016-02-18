@@ -34,8 +34,6 @@ import org.opengis.filter.Filter;
 
 /**
  * Helper class for loading TIGER/Line Shapefile data from disk
- * 
- * @author David Strawn
  */
 public class MSAShapefileLoader {
     

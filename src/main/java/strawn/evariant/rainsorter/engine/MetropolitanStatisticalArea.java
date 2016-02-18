@@ -30,8 +30,6 @@ import strawn.evariant.rainsorter.data.precipitation.PrecipitationRecord;
  * It contains:
  *   a list of Weather Stations within the MSA
  *   a SimpleFeature representing the geographical area covered by the MSA
- * 
- * @author David Strawn
  */
 public class MetropolitanStatisticalArea {
     

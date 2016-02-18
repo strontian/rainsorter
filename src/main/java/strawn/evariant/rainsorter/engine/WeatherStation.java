@@ -24,8 +24,6 @@ import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 
 /**
  * Represents a weather station. This class just aggregates precipitation data. Calculations are done in MetropolitanStatisticalArea
- * 
- * @author David Strawn
  */
 public class WeatherStation {
     

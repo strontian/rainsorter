@@ -26,7 +26,7 @@ import org.apache.commons.csv.CSVRecord;
 
 /**
  *
- * @author David Strawn
+ * 
  */
 public class WeatherStationLoader {
     

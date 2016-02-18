@@ -20,7 +20,6 @@ package strawn.evariant.rainsorter.engine;
 
 import strawn.evariant.rainsorter.tools.DataOrganizationMethods;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -36,9 +35,6 @@ import strawn.evariant.rainsorter.exceptions.InvalidDataException;
 import strawn.evariant.rainsorter.tools.GeometryTools;
 
 /**
- *
- * @author David Strawn
- * 
  * This class is the main workhorse of rainsorter. 
  * All needed data sets meet here, and are connected in a meaningful way
  * This class computes the population wetness.

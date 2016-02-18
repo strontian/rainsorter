@@ -30,10 +30,7 @@ import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
 import strawn.evariant.rainsorter.tools.GeometryTools;
 
 /**
- *
- * @author David Strawn
- * 
- * This class tests the shapefiles, and the station data
+ * Tests the TIGER/Line data, and QCLCD Station data
  * The shapefile has records that define a region covered by an MSA
  * Using the latitude and longitude from our station data, we can see if a station is in a particular MSA
  */

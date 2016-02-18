@@ -26,8 +26,6 @@ import java.util.List;
 
 /**
  * Static method class for helping write to disk.
- * 
- * @author David Strawn
  */
 public class IOTools {
     

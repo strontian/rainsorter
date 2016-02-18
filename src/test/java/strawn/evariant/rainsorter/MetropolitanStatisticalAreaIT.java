@@ -32,8 +32,7 @@ import strawn.evariant.rainsorter.data.msapop.MSAPopulationRecord;
 import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
 
 /**
- *
- * @author David Strawn
+ * Class for testing MSA Census Population data
  */
 public class MetropolitanStatisticalAreaIT {
     

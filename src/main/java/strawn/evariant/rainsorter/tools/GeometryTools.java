@@ -27,8 +27,6 @@ import org.opengis.feature.simple.SimpleFeature;
 
 /**
  * Static method class for helping with Geometry used by GeoTools/JTS
- * 
- * @author David Strawn
  */
 public class GeometryTools {
     

@@ -21,11 +21,8 @@ package strawn.evariant.rainsorter.engine;
 import java.util.Comparator;
 
 /**
- *
  * Comparator for sorting a Collection of type MetropolitanStatisticalArea by population wetness.
  * Using Collections.sort with this comparator returns a list in descending order
- * 
- * @author David Strawn
  */
 public class MSAWetnessComparator implements Comparator<MetropolitanStatisticalArea> {
     /**

@@ -29,8 +29,6 @@ import org.apache.commons.csv.CSVRecord;
 
 /**
  * Helper class for loading MSA Census data from disk
- * 
- * @author David Strawn
  */
 public class MSAPopulationLoader {
     

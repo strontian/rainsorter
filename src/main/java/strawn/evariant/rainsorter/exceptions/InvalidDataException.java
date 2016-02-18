@@ -20,8 +20,6 @@ package strawn.evariant.rainsorter.exceptions;
 
 /**
  * This exception is thrown if one of our assumptions about the data set is broken.
- * 
- * @author David Strawn
  */
 public class InvalidDataException extends Exception {
 

@@ -20,8 +20,6 @@ package strawn.evariant.rainsorter.data.qclcdstations;
 
 /**
  * This record represents one row from the QCLCD Station data. Each record contains information describing a weather station. 
- * 
- * @author David Strawn
  */
 public class QCWeatherStationRecord {
     

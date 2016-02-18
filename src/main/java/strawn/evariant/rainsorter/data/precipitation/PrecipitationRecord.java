@@ -21,8 +21,6 @@ package strawn.evariant.rainsorter.data.precipitation;
 /**
  * Record representing one row in the QCLCD precipitation data. Each record represents one hour of 
  * precipitation data at the station denoted by the wbanCode
- * 
- * @author David Strawn
  */
 public class PrecipitationRecord {
     
