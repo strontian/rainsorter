@@ -80,15 +80,20 @@ Running the program creates:
   [output/MSAs_By_Wetness.csv](output/MSAs_By_Wetness.csv) - a list of MSAs and their Population Wetness values, in descending order.  
   [output/MSAs_By_Quintiles.csv](output/MSAs_By_Quintiles.csv) - json file of MSAs with wetness quintile and coordinates
 
-## Build
+## Build and Run
 
 This project uses Maven to build. To build the source, from the project directory(where the pom.xml file is), run:
  
 ```console
-mvn package
+$mvn package
 ```
 
 The jar can then be found in target/rainsorter-${version}-jar-with-dependencies.jar
+
+To run(this must be run from the project directory):
+```console
+$java -jar target/rainsorter-0.0.0-jar-with-dependencies.jar
+```
 
 ## License
 
