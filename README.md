@@ -88,6 +88,12 @@ This project uses Maven to build. To build the source, from the project director
 $mvn package
 ```
 
+To run the integration tests:  
+
+```console
+$mvn verify
+```
+
 The jar can then be found in target/rainsorter-${version}-jar-with-dependencies.jar
 
 To run(this must be run from the project directory):
