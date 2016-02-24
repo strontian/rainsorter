@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter;
+package strawn.evariant.rainsorter.data;
 
 import strawn.evariant.rainsorter.tools.DataOrganizationMethods;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opengis.feature.simple.SimpleFeature;
 import strawn.evariant.rainsorter.data.msapop.MSAPopulationLoader;
@@ -36,27 +36,16 @@ import strawn.evariant.rainsorter.data.msashapefile.MSAShapefileLoader;
  */
 public class MetropolitanStatisticalAreaIT {
     
-    List<MSAPopulationRecord> populationRecords;
-    Map<String, SimpleFeature> regions;
-    
-    public static final int EXPECTED_MSA_COUNT = 388;
+    static List<MSAPopulationRecord> populationRecords;
+    static Map<String, SimpleFeature> regions;
     
     /**
-     *
      * @throws IOException
      */
-    @Before
-    public void setup() throws IOException {
+    @BeforeClass
+    public static void setup() throws IOException {
         populationRecords = MSAPopulationLoader.loadRecordsFromDisk();
         regions = DataOrganizationMethods.createCBSAToFeaturesMap(MSAShapefileLoader.loadFeatures());
-    }
-    
-    /**
-     * Make sure we have the correct number of MSAs(388)
-     */
-    @Test
-    public void testNumberOfMSAs() {
-        Assert.assertEquals(EXPECTED_MSA_COUNT, populationRecords.size());
     }
     
     /**

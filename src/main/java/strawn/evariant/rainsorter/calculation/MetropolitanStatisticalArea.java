@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter.engine;
+package strawn.evariant.rainsorter.calculation;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -16,26 +16,35 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter.data.precipitation;
+package strawn.evariant.rainsorter.data.msapop;
+
+import java.io.IOException;
+import java.util.List;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
- * Record representing one row in the QCLCD precipitation data. Each record represents one hour of 
- * precipitation data at the station denoted by the wbanCode
+ *
+ * @author davidstrawn
  */
-public class PrecipitationRecord {
+public class MSAPopulationLoaderIT {
     
-    public final String wbanCode;
-    public final int hour;
-    public final double inchesOfRain;
-    public final boolean isTrace;
-    public final boolean isSuspect;
+    static List<MSAPopulationRecord> records;
     
-    public PrecipitationRecord(String wbanId, int hour, double inchesOfRain, boolean isTrace, boolean isSuspect) {
-        this.wbanCode = wbanId;
-        this.hour = hour;
-        this.inchesOfRain = inchesOfRain;
-        this.isTrace = isTrace;
-        this.isSuspect = isSuspect;
+    public static final int EXPECTED_MSA_COUNT = 388;
+    
+    @BeforeClass
+    public static void beforeClass() throws IOException {
+        records = MSAPopulationLoader.loadRecordsFromDisk();
+    }
+    
+    /**
+     * Make sure we have the correct number of MSAs(388)
+     */
+    @Test
+    public void testMSACount() {
+        Assert.assertEquals(EXPECTED_MSA_COUNT, records.size());
     }
     
 }

@@ -20,15 +20,15 @@ package strawn.evariant;
 
 import java.io.IOException;
 import java.util.List;
-import strawn.evariant.rainsorter.engine.MetropolitanStatisticalArea;
-import strawn.evariant.rainsorter.engine.RainsorterEngine;
+import strawn.evariant.rainsorter.calculation.MetropolitanStatisticalArea;
+import strawn.evariant.rainsorter.calculation.PopulationWetnessCalculation;
 import strawn.evariant.rainsorter.exceptions.InvalidDataException;
 import strawn.evariant.rainsorter.output.OutputCreator;
 
 public class App {
     
     public static void main( String[] args ) throws IOException, InvalidDataException {
-        RainsorterEngine engine = RainsorterEngine.createEngine();
+        PopulationWetnessCalculation engine = PopulationWetnessCalculation.createEngine();
         List<MetropolitanStatisticalArea> msas = engine.getSortedMSAs();
         OutputCreator.writeWetnessCsv(msas);
         OutputCreator.writeMSAQuintiles(msas);

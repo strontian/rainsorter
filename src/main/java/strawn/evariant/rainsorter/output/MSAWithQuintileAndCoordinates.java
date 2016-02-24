@@ -1,20 +1,20 @@
-/*
- * Copyright (C) 2016 David Strawn.
+/**
+ * Copyright (C) 2016  David Strawn
+ * 
+ * This file is part of rainsorter.
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * rainsorter is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 2.1 of the License, or
+ * (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * rainsorter is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301  USA
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
 package strawn.evariant.rainsorter.output;
 
@@ -23,10 +23,10 @@ package strawn.evariant.rainsorter.output;
  */
 public class MSAWithQuintileAndCoordinates {
     
-    public double latitude;
-    public double longitude;
-    public String name;
-    public int quintile;
+    public final double latitude;
+    public final double longitude;
+    public final String name;
+    public final int quintile;
     
     public MSAWithQuintileAndCoordinates(double latitude, double longitude, String name, int quintile) {
         this.latitude = latitude;

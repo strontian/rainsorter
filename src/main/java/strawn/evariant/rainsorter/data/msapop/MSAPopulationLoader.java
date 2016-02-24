@@ -50,7 +50,7 @@ public class MSAPopulationLoader {
             identifier = identifier.replace(" Metro Area","");
             String[] indentifierSplit = identifier.split(",");
             String msaName = indentifierSplit[0].trim();
-            String msaState = indentifierSplit[1].trim();
+            //String msaState = indentifierSplit[1].trim();
             int population = Integer.parseInt(record.get("Population Estimate (as of July 1) - 2014"));
             toReturn.add(new MSAPopulationRecord(msaName, record.get("Id2"), population));
         }

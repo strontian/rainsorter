@@ -16,26 +16,12 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter.data.precipitation;
+package strawn.evariant.rainsorter.calculation;
 
 /**
- * Record representing one row in the QCLCD precipitation data. Each record represents one hour of 
- * precipitation data at the station denoted by the wbanCode
+ *
+ * @author davidstrawn
  */
-public class PrecipitationRecord {
-    
-    public final String wbanCode;
-    public final int hour;
-    public final double inchesOfRain;
-    public final boolean isTrace;
-    public final boolean isSuspect;
-    
-    public PrecipitationRecord(String wbanId, int hour, double inchesOfRain, boolean isTrace, boolean isSuspect) {
-        this.wbanCode = wbanId;
-        this.hour = hour;
-        this.inchesOfRain = inchesOfRain;
-        this.isTrace = isTrace;
-        this.isSuspect = isSuspect;
-    }
+public class PopulationWetnessCalculationIT {
     
 }

@@ -31,15 +31,17 @@ import org.opengis.feature.simple.SimpleFeature;
 public class GeometryTools {
     
     /**
-     * Takes a coordinate in the form of longitude and latitude, and a SimpleFeature, and determines whether or not
-     * the coordinate is enclosed by the region described by the SimpleFeature
+     * Determines where or not a point is in a region.
      * 
      * @param longitude The longitude of the point
      * @param latitude The latitude of the point
      * @param region SimpleFeature generated from a Shapefile
-     * @return true if the coordinates are enclosed by the region, false otherwise
+     * @return true if the point is enclosed by the region, false otherwise
      */
     public static boolean isPointInRegion(double longitude, double latitude, SimpleFeature region) {
+        if(region == null) {
+            return false;
+        }
         GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory(null);
         Coordinate coordinate = new Coordinate(longitude, latitude);
         Point point = geometryFactory.createPoint(coordinate);

@@ -38,6 +38,8 @@ public class QCWeatherStationLoader {
     /**
      * Loads and returns a list of all weather stations in the QCLCD data set.
      * 
+     * Throws out stations that don't have WBANs (Master file has 7)
+     * 
      * @return List of QCWeatherStationRecord representing the stations
      * @throws FileNotFoundException
      * @throws IOException 

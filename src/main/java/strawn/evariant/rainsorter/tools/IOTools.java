@@ -51,7 +51,7 @@ public class IOTools {
     
     /**
      * Writes a list of objects as a json file. Gson can automatically convert any object to json.
-     * Format is: [{object 1}, {object 2}, ..., {object n}]
+     * Output format is: [{object 1}, {object 2}, ..., {object n}]
      * 
      * @param location the location to write to
      * @param toWrite list of objects to convert to json

@@ -26,12 +26,12 @@ import java.util.Map;
 import org.opengis.feature.simple.SimpleFeature;
 import strawn.evariant.rainsorter.data.msapop.MSAPopulationRecord;
 import strawn.evariant.rainsorter.data.qclcdstations.QCWeatherStationRecord;
-import strawn.evariant.rainsorter.engine.MetropolitanStatisticalArea;
-import strawn.evariant.rainsorter.engine.WeatherStation;
+import strawn.evariant.rainsorter.calculation.MetropolitanStatisticalArea;
+import strawn.evariant.rainsorter.calculation.WeatherStation;
 
 /**
- * A collection of methods for converting from data structure to another. 
- * These could be generalized using generics and reflection at a later time.
+ * A collection of static methods for converting onto data structure into another. 
+ * TODO: These could be generalized using generics and reflection at a later time.
  */
 public class DataOrganizationMethods {
     
@@ -54,7 +54,7 @@ public class DataOrganizationMethods {
      * @param populationRecords
      * @return list of MetropolitanStatisticalArea
      */
-    public static List<MetropolitanStatisticalArea> createMSAList(List<MSAPopulationRecord> populationRecords) {
+    public static ArrayList<MetropolitanStatisticalArea> createMSAList(List<MSAPopulationRecord> populationRecords) {
         ArrayList<MetropolitanStatisticalArea> toReturn = new ArrayList();
         for(MSAPopulationRecord record : populationRecords) {
             toReturn.add(new MetropolitanStatisticalArea(record.msaName, record.CBSACode, record.population));

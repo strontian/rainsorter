@@ -19,12 +19,12 @@
 package strawn.evariant.rainsorter.output;
 
 /**
- * This class stores a record of an MSA and its population wetness, and generates a CSV output string for the data.
+ * This is used to generate a CSV output string. The data is the name of the MSA and its population wetness.
  */
 public class MSAWetness {
     
-    public String msaName;
-    public int msaWetness;
+    public final String msaName;
+    public final int msaWetness;
     
     public MSAWetness(String msaName, int msaWetness){
         this.msaName = msaName;

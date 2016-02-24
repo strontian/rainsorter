@@ -16,9 +16,9 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter;
+package strawn.evariant.rainsorter.data;
 
-import strawn.evariant.rainsorter.engine.WeatherStation;
+import strawn.evariant.rainsorter.calculation.WeatherStation;
 import strawn.evariant.rainsorter.tools.DataOrganizationMethods;
 import java.io.IOException;
 import java.util.HashMap;

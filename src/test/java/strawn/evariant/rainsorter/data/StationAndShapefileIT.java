@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with rainsorter.  If not, see http://www.gnu.org/licenses.
  */
-package strawn.evariant.rainsorter;
+package strawn.evariant.rainsorter.data;
 
 import java.io.IOException;
 import java.util.List;
@@ -75,7 +75,7 @@ public class StationAndShapefileIT {
                 if(GeometryTools.isPointInRegion(station.longitude, station.latitude, feature)) {
                     featureMatchCount++;
                     if(featureMatchCount > 1) {
-                        //System.out.println("Overmatch Station!:" + station.wban + ", feature:" + feature.getAttribute("CBSAFP").toString());
+                        System.out.println("Overmatch Station!:" + station.wban + ", feature:" + feature.getAttribute("CBSAFP").toString());
                     }
                 }
             }

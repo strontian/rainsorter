@@ -23,9 +23,9 @@ package strawn.evariant.rainsorter.data.msapop;
  */
 public class MSAPopulationRecord {
     
-    public String msaName;
-    public String CBSACode;
-    public int population;
+    public final String msaName;
+    public final String CBSACode;
+    public final int population;
     
     public MSAPopulationRecord(String msaName, String CBSAcode, int population) {
         this.msaName = msaName;

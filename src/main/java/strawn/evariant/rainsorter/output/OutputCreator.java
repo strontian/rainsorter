@@ -21,8 +21,8 @@ package strawn.evariant.rainsorter.output;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import strawn.evariant.rainsorter.engine.MetropolitanStatisticalArea;
-import strawn.evariant.rainsorter.engine.WeatherStation;
+import strawn.evariant.rainsorter.calculation.MetropolitanStatisticalArea;
+import strawn.evariant.rainsorter.calculation.WeatherStation;
 import strawn.evariant.rainsorter.tools.IOTools;
 
 /**
