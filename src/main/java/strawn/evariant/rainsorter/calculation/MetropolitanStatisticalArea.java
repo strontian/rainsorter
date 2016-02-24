@@ -40,6 +40,7 @@ public class MetropolitanStatisticalArea {
     private SimpleFeature geographicalRegionFeature;
     private double wetnessRating;
     private boolean isWetnessComputed;
+    //unused in the current calculation, but it's possible we are interested in trace precipitation for more precise measurements later
     private int traceCount;
     
     public MetropolitanStatisticalArea(String msaName, String CBSAcode, int population) {
@@ -59,6 +60,7 @@ public class MetropolitanStatisticalArea {
      */
     public void addRegionFeature(SimpleFeature feature) {
         this.geographicalRegionFeature = feature;
+        isWetnessComputed = false;
     }
 
     /**
@@ -68,6 +70,7 @@ public class MetropolitanStatisticalArea {
      */
     public void addStation(WeatherStation station) {
         stations.add(station);
+        isWetnessComputed = false;
     }
     
     /**
@@ -84,7 +87,7 @@ public class MetropolitanStatisticalArea {
         if(!stations.isEmpty()) {
             for (int i = 0; i < stations.get(0).readings.size(); i++) {
                 int participatingStationsCount = stations.size();
-                double inchesThisHour = 0d;
+                double totalInchesThisHour = 0d;
                 for (WeatherStation station : stations) {
                     PrecipitationRecord precip = station.readings.get(i);
                     if(precip.isSuspect) {
@@ -92,11 +95,11 @@ public class MetropolitanStatisticalArea {
                     }else if(precip.isTrace) {
                         traceCount++;
                     }else {
-                        inchesThisHour += precip.inchesOfRain;
+                        totalInchesThisHour += precip.inchesOfRain;
                     }
                 }
                 if(participatingStationsCount > 0) {
-                    double averageInches = inchesThisHour/(double)participatingStationsCount;
+                    double averageInches = totalInchesThisHour/(double)participatingStationsCount;
                     totalInchHours += averageInches;
                 }
             }

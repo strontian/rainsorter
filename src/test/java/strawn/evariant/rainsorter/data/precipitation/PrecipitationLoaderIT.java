@@ -56,5 +56,15 @@ public class PrecipitationLoaderIT {
             Assert.assertTrue(i <= 24);
         }
     }
-    
+    /**
+     * Test that all hours in the precipitation dataset are after 7am.
+     */
+    @Test
+    public void testRecordsWithRainHaveNoTrace() {
+        for(PrecipitationRecord record : records) {
+            if(record.isTrace) {
+                Assert.assertEquals(0, record.inchesOfRain, .005);
+            }
+        }
+    }
 }

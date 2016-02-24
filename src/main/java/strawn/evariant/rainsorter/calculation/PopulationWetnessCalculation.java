@@ -54,7 +54,7 @@ public class PopulationWetnessCalculation {
      * @throws InvalidDataException - See constructor for details on why this is thrown
      * @throws IOException - Thrown if data was unable to be loaded from disk
      */
-    public static PopulationWetnessCalculation createEngine() throws InvalidDataException, IOException {
+    public static PopulationWetnessCalculation createCalculation() throws InvalidDataException, IOException {
         return new PopulationWetnessCalculation(
             MSAPopulationLoader.loadRecordsFromDisk(),
             QCWeatherStationLoader.loadRecordsFromDisk(),

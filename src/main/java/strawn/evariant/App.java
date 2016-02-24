@@ -28,7 +28,7 @@ import strawn.evariant.rainsorter.output.OutputCreator;
 public class App {
     
     public static void main( String[] args ) throws IOException, InvalidDataException {
-        PopulationWetnessCalculation engine = PopulationWetnessCalculation.createEngine();
+        PopulationWetnessCalculation engine = PopulationWetnessCalculation.createCalculation();
         List<MetropolitanStatisticalArea> msas = engine.getSortedMSAs();
         OutputCreator.writeWetnessCsv(msas);
         OutputCreator.writeMSAQuintiles(msas);
