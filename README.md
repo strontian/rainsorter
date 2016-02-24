@@ -94,6 +94,9 @@ To run(this must be run from the project directory):
 ```console
 $java -jar target/rainsorter-0.0.0-jar-with-dependencies.jar
 ```
+## Documentation
+
+Javadocs can be found at [http://strontian.github.io/rainsorter/](http://strontian.github.io/rainsorter/)
 
 ## License
 
